@@ -214,7 +214,7 @@ div.stChatInput textarea::placeholder {
 )
 
 # Caminho para a logo do bot
-LOGO_BOT_PATH = "assets/AD&M_FOTO MERDA.jpeg"
+LOGO_BOT_PATH = "/workspaces/ChatbotADEM/assets/Cópia de Logo BRANCA HD cópia.png"
 
 # Verificar se o arquivo da logo existe
 if os.path.exists(LOGO_BOT_PATH):
