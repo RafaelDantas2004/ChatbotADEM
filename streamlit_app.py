@@ -12,7 +12,7 @@ import speech_recognition as sr
 
 # Configurações iniciais
 st.set_page_config(
-    page_title="CADE IA",
+    page_title="AD&M IA",
     page_icon="💛",
     layout="wide",
 )
