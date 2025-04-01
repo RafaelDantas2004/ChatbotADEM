@@ -8,15 +8,6 @@ import json
 import streamlit.components.v1 as components
 import speech_recognition as sr
 
-# Para com o rolamento automático do streamlit
-st.markdown("""
-    <script>
-        function stopAutoScroll() {
-            window.scrollTo(0, 0);
-        }
-        setInterval(stopAutoScroll, 100);
-    </script>
-""", unsafe_allow_html=True)
 
 # Configurações iniciais
 st.set_page_config(
