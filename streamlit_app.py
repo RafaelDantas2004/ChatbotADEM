@@ -279,13 +279,14 @@ def limpar_historico():
 def carregar_contexto():
     contexto = ""
     base_dir = "C:/Users/Gerlany/OneDrive/I9 Chatbot"
+
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [
-        "contexto1.txt",
-        "contexto2.txt",
-        "contexto3.txt",
-        "contexto4.txt"
-]
+       os.path.join(base_dir, "contexto1.txt"),
+        os.path.join(base_dir, "contexto2.txt"),
+        os.path.join(base_dir, "contexto3.txt"),
+        os.path.join(base_dir, "contexto4.txt")
+        ]
 
 
     for arquivo in arquivos_contexto:
