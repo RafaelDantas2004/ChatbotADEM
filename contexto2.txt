@@ -1,0 +1,283 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Acompanhamento de renovação de contrato
+Responsável 
+Faturistas e Diretores
+Objetivo
+Renovar contratos de interesse
+Recursos Necessários
+Funcionários;
+Documentos.
+Ações (1/2)
+1.0 Receber o e-mail informando o vencimento do contrato.
+A Cardiofitness ainda possui interesse em renovar o contrato?
+NÃO
+2.0 Responder o email com a falta de interesse.
+
+FIM DO PROCESSO
+
+A Cardiofitness ainda possui interesse em renovar o contrato?
+SIM
+3.0 Entrar em contato com o convênio.
+Mandar carta para proposta;
+Organizar os arquivos solicitados pelo convênio.
+Os documentos serão localizados no google drive documentos da cardiofitness.
+Os documentos estão atualizados?
+NÃO 
+4.0 Providenciar com a contabilidade.
+Os documentos estão atualizados?
+SIM
+5.0 Anexar os arquivos de acordo com a ordem solicitada.
+6.0 Enviar documentos via e-mail para o convênio.
+Aguardar o convênio elaborar o contrato.
+7.0 Receber o contrato do e-mail.
+Imprimir o contrato;
+Levar o contato para a Dra. Marisa (diretoria).
+8.0 Assinar o documento.
+9.0 Escanear o documento assinado.
+
+3
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Acompanhamento de renovação de contrato
+Responsável 
+Faturistas e Diretores
+Objetivo
+Renovar contratos de interesse
+Recursos Necessários
+Funcionários;
+Documentos.
+Ações (2/2)
+Enviar para convênio.
+
+FIM DO PROCESSO
+
+4
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+07/02/2025
+Tarefa
+Autorização
+A
+Responsável 
+Faturistas e Recepcionistas
+Objetivo
+Fazer a autorização correta
+Recursos Necessários
+Funcionários.
+Ações (1/1)
+1.0 Elaborar pedido médico.
+Anotar o pedido médico em um caderno.
+2.0 Conferir o pedido médico com um caderno.
+Devolver o caderno para recepção.
+A autorização é prévia?
+SIM
+3.0 Observar as agendas no dia seguinte para solicitar as autorizações.
+Solicitar a autorização nos portais do convênio.
+No dia seguinte
+A autorização é prévia?
+NÃO
+4.0 Entrar no portal do convênio.
+Verificar a autorização;
+Imprimir autorização no ato do atendimento no paciente;
+Receber assinatura do paciente.
+
+FIM DO PROCESSO
+
+
+5
+Procedimento Operacional Padrão
+N.º 3
+V. 1
+Data
+07/02/2025
+Tarefa
+Cadastramento de novo médico
+Responsável 
+Faturistas
+Objetivo
+Cadastramento correto do novo médico.
+Recursos Necessários
+Funcionários;
+Medware.
+Ações (1/1)
+Entrada de novo médico
+Ele está com o credenciamento correto?
+NÃO
+1.0 FIcar atendendo com a guia do Dr. Renan.
+Esperar 2 meses para efetuar o cadastramento
+Ele está com o credenciamento correto?
+SIM
+2.0 Fazer o cadastramento do médico no Medware.
+Colocar o nome, CRM, especialidade e dados pessoais.
+
+FIM DO PROCESSO
+
+6
+Procedimento Operacional Padrão
+N.º 4
+V. 1
+Data
+07/02/2025
+Tarefa
+Cobrança do convênio
+Responsável 
+Faturistas e Gerentes Gerais
+Objetivo
+Cobrar devidamente o convênio
+Recursos Necessários
+Funcionários;
+Planilha.
+Ações (1/1)
+1.0 Receber o e-mail do convênio exigindo a nota fiscal.
+Elaborar a nota fiscal com base no que enviaram no e-mail;
+Enviar a nota fiscal digitalizada no e-mail.
+Aguardar o período de pagamento.
+Convênio efetuou o pagamento?
+SIM
+2.0 Dar baixa na planilha de envio mensal.
+
+FIM DO PROCESSO
+
+Convênio efetuou o pagamento?
+NÃO
+3.0 Entrar em contato com o convênio para saber o motivo.
+O contato pode ser realizado tanto via e-mail quanto ligação.
+Informar a ADM sobre o motivo do atraso do pagamento do convênio.
+
+FIM DO PROCESSO
+
+7
+Procedimento Operacional Padrão
+N.º 5
+V. 1
+Data
+07/02/2025
+Tarefa
+Faturamento das guias do convênio
+Responsável 
+Faturistas
+Objetivo
+Cobrar pagamento do convênio
+Recursos Necessários
+Funcionários;
+Planilhas.
+Ações (1/2)
+1.0 Buscar as guias dos convênios na recepção.
+ Separar as guias dos convênios para cada faturista;
+Abrir o sistema medware;
+Preencher na sessão (operadora) o convênio que vai ser faturado;
+Ir na data de emissão e selecionar o início do mês;
+Clicar em nome do paciente para ficar em ordem;
+Abrir a guia do convênio;
+Pegar a guias física na pasta de guias;
+Preencher todas as informações da guia física com base na guia virtual;
+Conferir as informações;
+Clicar na opção (conferida);
+Clicar em salvar e fechar;
+Preencher a guia física;
+Informações a serem preenchidas: Data do exame, valor médico, CID e adicionar o pedido médico.
+Conferir de guias faturadas com a quantidade de guias físicas;
+Adicionar as guias ao lote;
+Deixar as guias organizadas em ordem alfabética;
+Escanear as guias;
+Elaborar o xml;
+Enviar para o convênio;
+Aguardar o convênio enviar a solicitação da nota fiscal e-mail.
+Conferir se o valor das retenções estão certos;
+
+8
+Procedimento Operacional Padrão
+N.º 6
+V. 1
+Data
+07/02/2025
+Tarefa
+Faturamento das guias do convênio
+Responsável 
+Faturistas
+Objetivo
+Cobrar pagamento do convênio
+Recursos Necessários
+Funcionários;
+Planilhas.
+Ações (2/2)
+Elaborar a nota fiscal com base na solicitação do convênio no e-mail.
+Enviar a nota fiscal para o convênio.
+Aguardar o período de pagamento.
+Convênio efetuou o pagamento?
+SIM
+2.0 Dar baixa na planilha de envio mensal ou semanal.
+Devem ser preenchidos o valor enviado, valor líquido e data de envio.
+
+FIM DO PROCESSO
+
+Convênio efetuou o pagamento?
+NÃO
+3.0 Entrar em contato com o convênio para saber o motivo.
+Avisar o administrativo  o motivo do atraso de pagamento;
+Resolver o problema.
+
+FIM DO PROCESSO
+
+9
+Procedimento Operacional Padrão
+N.º 7
+V. 1
+Data
+07/02/2025
+Tarefa
+Reajuste do valor de convênio
+Responsável 
+Faturistas, Convênio e Dra. Marisa 
+Objetivo
+Reajustar adequadamente o valor do convênio.
+Recursos Necessários
+Medware;
+Funcionários;
+Planilhas.
+Ações (1/1)
+Aguardar o início do ano.
+1.0 Receber da Dra. marisa o percentual do reajuste.
+Enviar um e-mail para o convênio com o percentual do reajuste.
+O convênio aceitou o reajuste?
+NÃO
+2.0 Informar a Dra. Marisa o motivo.
+
+FIM DO PROCESSO
+
+O convênio aceitou o reajuste?
+SIM
+3.0 Elaborar o termo aditivo.
+Enviar para a Cardiofitness o termo aditivo via e-mail.
+4.0 Assinar o termo aditivo. (Faturamento e Dra. Marisa)
+5.0 Enviar para o convênio.
+6.0 Convênio assina.
+7.0 Abrir a biblioteca do Medware.
+A atualização do valor é no início do mês.
+Selecionar o nome do convênio;
+Atualizar o valor na biblioteca;
+Atualizar a planilha  controle de envio de solicitação de reajuste.
+
+FIM DO PROCESSO
+
