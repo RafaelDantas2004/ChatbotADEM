@@ -227,7 +227,7 @@ else:
     LOGO_BOT = None
 
 # Caminho para o ícone personalizado
-ICON_PATH = "asset/Cópia de Logo BRANCA HD cópia"
+ICON_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
 
 # Verificar se o arquivo do ícone existe
 if os.path.exists(ICON_PATH):
