@@ -284,10 +284,10 @@ def carregar_contexto():
 
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [ 
-        os.path.join(base_dir, "contexto1.txt"),
-        os.path.join(base_dir, "contexto2.txt"),
-        os.path.join(base_dir, "contexto3.txt"),
-        os.path.join(base_dir, "contexto4.txt")
+        ("contexto1.txt"),
+        ("contexto2.txt"),
+        ("contexto3.txt"),
+        ("contexto4.txt")
         ]
 
 
