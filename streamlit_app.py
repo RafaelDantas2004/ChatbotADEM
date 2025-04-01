@@ -280,13 +280,12 @@ def carregar_contexto():
     contexto = ""
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [
-arquivos_contexto = [
-    r"C:\Users\Gerlany\OneDrive\I9 Chatbot\Projeto CLINIC.txt",
-    r"C:\Users\Gerlany\OneDrive\I9 Chatbot\POP - Telefonia.txt",
-    r"C:\Users\Gerlany\OneDrive\I9 Chatbot\POP - Financeiro.txt",
-    r"C:\Users\Gerlany\OneDrive\I9 Chatbot\POP - Faturamento.txt"
+    "C:/Users/Gerlany/OneDrive/I9 Chatbot/Projeto CLINIC.txt",
+    "C:/Users/Gerlany/OneDrive/I9 Chatbot/POP - Telefonia.txt",
+    "C:/Users/Gerlany/OneDrive/I9 Chatbot/POP - Financeiro.txt",
+    "C:/Users/Gerlany/OneDrive/I9 Chatbot/POP - Faturamento.txt"
 ]
-]
+
 
     for arquivo in arquivos_contexto:
         if os.path.exists(arquivo):
