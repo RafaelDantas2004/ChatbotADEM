@@ -235,7 +235,7 @@ if os.path.exists(ICON_PATH):
         # Usar st.columns para posicionar o ícone ao lado do título
         col1, col2 = st.columns([1.5, 4])  # Ajuste as proporções conforme necessário
         with col1:
-            st.image(ICON_PATH, width=10000000)  # Exibe o ícone com largura de 30px
+            st.image(ICON_PATH, width=100)  # Exibe o ícone com largura de 30px
         with col2:
             st.title("AD&M IA")  # Exibe o título
     except Exception as e:
