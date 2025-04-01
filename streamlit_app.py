@@ -275,16 +275,19 @@ def limpar_historico():
     st.session_state.mensagens_chat = []
     salvar_estado()
 
+# Diretório base
+base_dir = r"C:\Users\Gerlany\OneDrive\I9 Chatbot"
+
 # Carregar arquivos de texto nativos como contexto
 def carregar_contexto():
     contexto = ""
 
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
-    arquivos_contexto = [
-        ("contexto1.txt"),
-        ("contexto2.txt"),
-        ("contexto3.txt"),
-        ("contexto4.txt")
+    arquivos_contexto = [ 
+        os.path.join(base_dir, "contexto1.txt"),
+        os.path.join(base_dir, "contexto2.txt"),
+        os.path.join(base_dir, "contexto3.txt"),
+        os.path.join(base_dir, "contexto4.txt")
         ]
 
 
