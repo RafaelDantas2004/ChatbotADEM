@@ -237,11 +237,11 @@ if os.path.exists(ICON_PATH):
         with col1:
             st.image(ICON_PATH, width=10000000)  # Exibe o ícone com largura de 30px
         with col2:
-            st.title("CADE IA")  # Exibe o título
+            st.title("AD&M IA")  # Exibe o título
     except Exception as e:
         st.error(f"Erro ao carregar o ícone: {e}")
 else:
-    st.title("CADE IA")  # Fallback se o ícone não existir
+    st.title("AD&M IA")  # Fallback se o ícone não existir
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
@@ -333,7 +333,7 @@ def gerar_resposta(texto_usuario):
     chunks = dividir_texto(contexto)  # Divide o texto em chunks
     chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
 
-    contexto_pergunta = "Você é uma IA feita pelo Publix em parceria com o CADE, que busca dar respostas especializadas sobre a Administração Pública e a instituição CADE, e. Responda com base no seguinte contexto:\n\n"
+    contexto_pergunta = "Você é uma IA feita pela AD&M Consultoria, que busca dar respostas especializadas sobre a Administração, e. Responda com base no seguinte contexto:\n\n"
     for i, chunk in enumerate(chunks_relevantes):
         contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
@@ -394,9 +394,9 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**CADE IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
+                    st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
     else:
         with st.chat_message("assistant"):
-            st.markdown("*CADE IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+            st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
 
 
