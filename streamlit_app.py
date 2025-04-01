@@ -276,7 +276,7 @@ def limpar_historico():
     salvar_estado()
 
 # Diretório base
-base_dir = r"C:\Users\Gerlany\OneDrive\I9 Chatbot"
+base_dir = r"C:/Users/Gerlany/OneDrive/I9 Chatbot"
 
 # Carregar arquivos de texto nativos como contexto
 def carregar_contexto():
