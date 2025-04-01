@@ -8,6 +8,12 @@ import json
 import streamlit.components.v1 as components
 import speech_recognition as sr
 
+#Cancelar rolagem automática
+st.markdown("""
+    <style>
+        html, body { overflow: hidden !important; }
+    </style>
+""", unsafe_allow_html=True)
 
 # Configurações iniciais
 st.set_page_config(
