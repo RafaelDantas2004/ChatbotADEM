@@ -278,6 +278,7 @@ def limpar_historico():
 # Carregar arquivos de texto nativos como contexto
 def carregar_contexto():
     contexto = ""
+    base_dir = "C:/Users/Gerlany/OneDrive/I9 Chatbot"
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [
         "contexto1.txt",
