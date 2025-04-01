@@ -280,7 +280,7 @@ def carregar_contexto():
     contexto = ""
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [
-        "contexto1.txt",
+        "Acompanhamento de renovação de contrato.png",
         "contexto2.txt",
         "contexto3.txt",
         "contexto4.txt",
