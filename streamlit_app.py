@@ -280,10 +280,10 @@ def carregar_contexto():
     contexto = ""
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [
-    "C:/Users/Gerlany/OneDrive/I9 Chatbot/Projeto CLINIC.txt",
-    "C:/Users/Gerlany/OneDrive/I9 Chatbot/POP - Telefonia.txt",
-    "C:/Users/Gerlany/OneDrive/I9 Chatbot/POP - Financeiro.txt",
-    "C:/Users/Gerlany/OneDrive/I9 Chatbot/POP - Faturamento.txt"
+        "contexto1.txt",
+        "contexto2.txt",
+        "contexto3.txt",
+        "contexto4.txt"
 ]
 
 
