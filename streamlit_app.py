@@ -245,7 +245,7 @@ else:
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Sou uma IA especializada em Administração Pública, reunindo estudos e documentos sobre Autoridades de Defesa da Concorrência. Fui desenvolvida pelo Instituto Publix em parceria com o Conselho Administrativo de Defesa Econômica (CADE) e estou aqui para ajudar.</p>',
+    '<cp class="subtitulo">Sou uma IA desenvolvida pela AD&M consultoria empresarial, reunindo estudos e documentos sobre seu projeto e estou aqui para ajudar.</p>',
     unsafe_allow_html=True
 )
 
