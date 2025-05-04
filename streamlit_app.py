@@ -7,8 +7,7 @@ import json
 import hashlib
 import streamlit.components.v1 as components
 import speech_recognition as sr
-import pdfplumber                      # NOVO: leitura de PDFs com texto
-import pytesseract                     # NOVO: OCR para imagens e PDFs escaneados
+import pdfplumber  # ✅ Leitura de PDFs com texto extraível
 
 # Configurações iniciais
 st.set_page_config(
@@ -63,12 +62,12 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
-# ✅ Função atualizada para ler TXT, PDF e imagem com OCR
+# ✅ Função ajustada: apenas TXT e PDF com texto
 def carregar_contexto():
     contexto = ""
     arquivos_contexto = [
         "contexto1.txt", "contexto2.txt", "contexto3.txt", "contexto4.txt",
-        "contexto5.pdf", "imagem1.png", "imagem2.jpg"
+        "contexto5.pdf"
     ]
 
     for arquivo in arquivos_contexto:
@@ -87,10 +86,6 @@ def carregar_contexto():
                         page_text = page.extract_text()
                         if page_text:
                             texto += page_text + "\n"
-
-            elif arquivo.endswith((".png", ".jpg", ".jpeg")):
-                imagem = Image.open(arquivo)
-                texto = pytesseract.image_to_string(imagem, lang='por')
 
         except Exception as e:
             st.warning(f"Erro ao processar {arquivo}: {e}")
@@ -203,6 +198,8 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+
+
 
 
 
