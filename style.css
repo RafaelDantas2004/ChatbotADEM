@@ -8,3 +8,24 @@
     content: "";
     display: none;
 }
+
+# Ocultar toolbar e botões da barra superior (Share, GitHub, etc.)
+st.markdown(
+    """
+    <style>
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+        display: none !important;
+    }
+
+    header.st-emotion-cache-18ni7ap {  /* Oculta a barra superior */
+        display: none;
+    }
+
+    .stActionButtonIcon {
+        display: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
