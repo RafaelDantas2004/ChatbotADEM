@@ -7,8 +7,9 @@ import json
 import hashlib
 import streamlit.components.v1 as components
 import speech_recognition as sr
-import pdfplumber
-import easyocr
+import pdfplumber         # NOVO: leitura de PDF
+import easyocr            # NOVO: OCR para PDFs escaneados
+import io                 # NOVO: manipulação de imagens em memória
 
 # Configurações iniciais
 st.set_page_config(
@@ -66,6 +67,7 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
+# NOVO: Leitor OCR em português
 reader = easyocr.Reader(['pt'], gpu=False)
 
 def carregar_contexto():
@@ -86,20 +88,32 @@ def carregar_contexto():
             continue
 
         texto = ""
+
         try:
             if arquivo.endswith(".txt"):
                 with open(arquivo, "r", encoding="utf-8") as f:
                     texto = f.read()
+
             elif arquivo.endswith(".pdf"):
                 with pdfplumber.open(arquivo) as pdf:
                     for page in pdf.pages:
                         page_text = page.extract_text()
-                        if page_text:
+                        if page_text and page_text.strip():
                             texto += page_text + "\n"
+                        else:
+                            # Se não achar texto, usa OCR na imagem da página
+                            image = page.to_image(resolution=300).original
+                            img_byte_arr = io.BytesIO()
+                            image.save(img_byte_arr, format='PNG')
+                            img_byte_arr.seek(0)
+                            resultado = reader.readtext(img_byte_arr.read(), detail=0, paragraph=True)
+                            texto += "\n".join(resultado) + "\n"
+
             elif arquivo.endswith((".png", ".jpg", ".jpeg")):
                 imagem = Image.open(arquivo)
                 resultado = reader.readtext(imagem, detail=0, paragraph=True)
                 texto = "\n".join(resultado)
+
         except Exception as e:
             st.warning(f"Erro ao processar {arquivo}: {e}")
             continue
@@ -110,6 +124,10 @@ def carregar_contexto():
     return contexto
 
 contexto = carregar_contexto()
+
+# NOVO: Mostra trecho do contexto carregado (para teste)
+st.sidebar.success("✅ Contexto carregado!")
+st.sidebar.write(contexto[:500])
 
 def dividir_texto(texto, max_tokens=800):
     palavras = texto.split()
@@ -211,5 +229,6 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+
 
 
