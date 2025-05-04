@@ -190,10 +190,14 @@ Abaixo estão trechos relevantes para sua análise:
     for i, chunk in enumerate(chunks_relevantes):
         contexto_pergunta += f"\n--- Parte {i+1} do Contexto ---\n{chunk}\n"
 
-    mensagens = [
-        {"role": "system", "content": contexto_pergunta},
-        {"role": "user", "content": texto_usuario}
-    ]
+    mensagens = [{"role": "system", "content": contexto_pergunta}]
+
+    for msg in st.session_state.mensagens_chat:
+        mensagens.append({"role": "user", "content": msg["user"]})
+        if msg["bot"]:
+            mensagens.append({"role": "assistant", "content": msg["bot"]})
+
+    mensagens.append({"role": "user", "content": texto_usuario})
 
     for tentativa in range(3):
         try:
@@ -201,7 +205,7 @@ Abaixo estão trechos relevantes para sua análise:
             resposta = openai.ChatCompletion.create(
                 model="gpt-4o",
                 messages=mensagens,
-                temperature=0.7,
+                temperature=0.5,
                 max_tokens=800
             )
             return resposta["choices"][0]["message"]["content"]
