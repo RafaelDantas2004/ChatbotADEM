@@ -8,7 +8,7 @@ import hashlib
 import io
 import base64
 import pdfplumber
-import easyocr
+import easyocr # type: ignore
 import streamlit.components.v1 as components
 import speech_recognition as sr
 
