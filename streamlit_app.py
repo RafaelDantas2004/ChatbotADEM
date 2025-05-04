@@ -390,7 +390,7 @@ def gerar_resposta(texto_usuario):
     chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
 
 
-    contexto_pergunta = "Você é uma IA feita pela AD&M Consultoria, que busca dar respostas especializadas sobre a Administração com base nos projetos entregues pela AD&M, sendo funadamental auxiliar o cliente de forma clara, educada e eficiente, além de gerar insights estratégicos e analíticos:\n\n"
+    contexto_pergunta = "Você é uma IA feita pela AD&M Consultoria, que busca dar respostas especializadas sobre a Administração com base nos projetos entregues pela AD&M, sendo funadamental auxiliar o cliente de forma clara, educada e eficiente, além de gerar insights estratégicos e analíticos, de maneira extremamente aplicável e prática para o cliente, para que com os seus insights ele possa aplicar o que foi sugerido:\n\n"
     for i, chunk in enumerate(chunks_relevantes):
         contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
