@@ -7,7 +7,6 @@ import json
 import hashlib
 import streamlit.components.v1 as components
 import speech_recognition as sr
-import pdfplumber  # ✅ Leitura de PDFs com texto extraível
 
 # Configurações iniciais
 st.set_page_config(
@@ -15,6 +14,9 @@ st.set_page_config(
     page_icon="💙",
     layout="wide",
 )
+
+# CSS personalizado para estilizar a interface (mantido)
+# ... (CSS permanece inalterado)
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -62,38 +64,13 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
-# ✅ Função ajustada: apenas TXT e PDF com texto
 def carregar_contexto():
     contexto = ""
-    arquivos_contexto = [
-        "contexto4.pdf"
-        "contexto5.pdf"
-    ]
-
+    arquivos_contexto = ["contexto1.txt", "contexto2.txt", "contexto3.txt", "contexto4.txt"]
     for arquivo in arquivos_contexto:
-        if not os.path.exists(arquivo):
-            continue
-
-        texto = ""
-        try:
-            if arquivo.endswith(".txt"):
-                with open(arquivo, "r", encoding="utf-8") as f:
-                    texto = f.read()
-
-            elif arquivo.endswith(".pdf"):
-                with pdfplumber.open(arquivo) as pdf:
-                    for page in pdf.pages:
-                        page_text = page.extract_text()
-                        if page_text:
-                            texto += page_text + "\n"
-
-        except Exception as e:
-            st.warning(f"Erro ao processar {arquivo}: {e}")
-            continue
-
-        if texto.strip():
-            contexto += f"\n\n--- Conteúdo de {arquivo} ---\n{texto.strip()}\n"
-
+        if os.path.exists(arquivo):
+            with open(arquivo, "r", encoding="utf-8") as f:
+                contexto += f.read() + "\n\n"
     return contexto
 
 contexto = carregar_contexto()
