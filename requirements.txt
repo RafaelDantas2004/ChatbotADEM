@@ -14,5 +14,8 @@ pillow
 pydub
 ffmpeg
 speechrecognition
+pdfplumber
+pytesseract
+
 
 
