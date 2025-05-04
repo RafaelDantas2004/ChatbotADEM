@@ -5,8 +5,6 @@ from PIL import Image
 import time
 import json
 import hashlib
-import io
-import base64
 import streamlit.components.v1 as components
 import speech_recognition as sr
 
@@ -16,6 +14,9 @@ st.set_page_config(
     page_icon="💙",
     layout="wide",
 )
+
+# CSS personalizado para estilizar a interface (mantido)
+# ... (CSS permanece inalterado)
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -42,8 +43,6 @@ if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
 if "perguntas_respondidas" not in st.session_state:
     st.session_state.perguntas_respondidas = set()
-
-MAX_HISTORICO = 5  # número máximo de interações a serem consideradas no prompt
 
 def salvar_estado():
     with open("estado_bot.json", "w") as f:
@@ -118,13 +117,10 @@ Abaixo estão trechos relevantes para sua análise:
         contexto_pergunta += f"\n--- Parte {i+1} do Contexto ---\n{chunk}\n"
 
     mensagens = [{"role": "system", "content": contexto_pergunta}]
-
-    historico = st.session_state.mensagens_chat[-MAX_HISTORICO:]
-    for msg in historico:
+    for msg in st.session_state.mensagens_chat:
         mensagens.append({"role": "user", "content": msg["user"]})
         if msg["bot"]:
             mensagens.append({"role": "assistant", "content": msg["bot"]})
-
     mensagens.append({"role": "user", "content": texto_usuario})
 
     for tentativa in range(3):
@@ -145,12 +141,7 @@ Abaixo estão trechos relevantes para sua análise:
             else:
                 return f"Erro ao gerar a resposta: {str(e)}"
 
-def exportar_historico():
-    texto = ""
-    for m in st.session_state.mensagens_chat:
-        texto += f"Você: {m['user']}\nAD&M IA: {m['bot']}\n\n"
-    return texto
-
+# Sidebar
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
 else:
@@ -162,11 +153,6 @@ if api_key:
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
-    if st.sidebar.button("📄 Exportar Histórico", key="exportar_txt"):
-        historico = exportar_historico()
-        b64 = base64.b64encode(historico.encode()).decode()
-        href = f'<a href="data:file/txt;base64,{b64}" download="historico_chat_adm.txt">Clique aqui para baixar o histórico (.txt)</a>'
-        st.sidebar.markdown(href, unsafe_allow_html=True)
 else:
     st.warning("Por favor, insira sua chave de API para continuar.")
 
@@ -189,4 +175,5 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+
 
