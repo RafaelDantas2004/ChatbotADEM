@@ -3,8 +3,9 @@
     display: none;
 }
 
+
 /* Esconde o texto "Made with Streamlit" */
 .stApp footer:after {
     content: "";
-    display: none;
+    display: none;
 }
