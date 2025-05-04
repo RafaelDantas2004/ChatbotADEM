@@ -390,7 +390,7 @@ def gerar_resposta(texto_usuario):
     chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
 
 
-    contexto_pergunta = "Você é uma IA feita pela AD&M Consultoria, que busca dar respostas especializadas sobre a Administração com base nos projetos entregues pela AD&M, sendo funadamental auxiliar o cliente de forma clara, educada e eficiente, além de gerar insights estratégicos com base nos documentos contextos:\n\n"
+    contexto_pergunta = "Você é uma IA feita pela AD&M Consultoria, que busca dar respostas especializadas sobre a Administração com base nos projetos entregues pela AD&M, sendo funadamental auxiliar o cliente de forma clara, educada e eficiente, além de gerar insights estratégicos e analíticos:\n\n"
     for i, chunk in enumerate(chunks_relevantes):
         contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
@@ -409,7 +409,7 @@ def gerar_resposta(texto_usuario):
             resposta = openai.ChatCompletion.create(
                 model="gpt-4o",  # Usando o GPT-4o
                 messages=mensagens,
-                temperature=0.3,
+                temperature=0.5,
                 max_tokens=800  # Limita a resposta a 800 tokens
             )
             return resposta["choices"][0]["message"]["content"]
