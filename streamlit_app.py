@@ -1,4 +1,3 @@
-#import streamlit as st
 import streamlit as st
 import openai
 import os
@@ -8,9 +7,6 @@ import json
 import streamlit.components.v1 as components
 import speech_recognition as sr
 
-
-
-
 # Configurações iniciais
 st.set_page_config(
     page_title="AD&M IA",
@@ -18,346 +14,145 @@ st.set_page_config(
     layout="wide",
 )
 
+# CSS personalizado para estilizar a interface
+theme_css = """
+<style>
+/* Esconde elementos indesejados */
+._link_gzau3_10, ._profileContainer_gzau3_53,
+footer, iframe[title="streamlit branding"],
+[data-testid="stToolbar"], div[data-testid="stActionButtonIcon"],
+div[style*="position: fixed"][style*="right: 0px"][style*="bottom: 0px"] {
+    display: none !important;
+    visibility: hidden !important;
+}
 
-
-
-# CSS personalizado para estilizar o balão de upload e o aviso
-
-
-st.markdown(
-    """
-    <style>
-
-
-/* Esconde os elementos indesejados */
-    ._link_gzau3_10, ._profileContainer_gzau3_53 {
-        display: none !important;
-        visibility: hidden !important;
-    }
-
-
-        /* Remover barra inferior completa */
-        footer {
-            visibility: hidden !important;
-            display: none !important;
-        }
-
-
-        /* Remover qualquer iframe que possa conter o branding */
-        iframe[title="streamlit branding"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-
-        /* Remover a toolbar do Streamlit */
-        [data-testid="stToolbar"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-
-        /* Remover qualquer div fixa que possa conter os botões */
-        div[data-testid="stActionButtonIcon"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-
-        /* Ocultar qualquer elemento fixo no canto inferior direito */
-        div[style*="position: fixed"][style*="right: 0px"][style*="bottom: 0px"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-
-
-st.markdown(
-    """
-    <style>
-        /* Remover botões no canto inferior direito */
-        iframe[title="streamlit branding"] {
-            display: none !important;
-        }
-       
-        footer {
-            display: none !important;
-        }
-
-
-        [data-testid="stToolbar"] {
-            display: none !important;
-        }
-
-
-        /* Tentar esconder qualquer outro elemento fixo */
-        div[style*="position: fixed"] {
-            display: none !important;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-
-
-st.markdown(
-    """
-    <style>
-
-
-/* Remover barra superior do Streamlit */
+/* Ajuste de estilos */
 header {visibility: hidden;}
-
-
-/* Remover botão de configurações */
-[data-testid="stToolbar"] {visibility: hidden !important;}
-
-
-/* Remover rodapé do Streamlit */
-footer {visibility: hidden;}
-
-
-/* Remover botão de compartilhamento */
-[data-testid="stActionButtonIcon"] {display: none !important;}
-
-
-/* Ajustar margem para evitar espaços vazios */
 .block-container {padding-top: 1rem;}
 
-
- .overlay {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 150px;
-            height: 50px;
-            background-color: white;
-            z-index: 1000;
-        }
-
-
-    /* Estilo para o texto na sidebar */
-    .stSidebar .stMarkdown, .stSidebar .stTextInput, .stSidebar .stTextArea, .stSidebar .stButton, .stSidebar .stExpander {
-        color: white !important;  /* Cor do texto na sidebar */
-    }
-
-
-    /* Estilo para o texto na parte principal */
-    .stMarkdown, .stTextInput, .stTextArea, .stButton, .stExpander {
-        color: black !important;  /* Cor do texto na parte principal */
-    }
-
-
-    /* Estilo para o container de upload de arquivos */
-    .stFileUploader > div > div {
-        background-color: white;  /* Fundo branco */
-        color: black;  /* Texto preto */
-        border-radius: 10px;
-        padding: 10px;
-        border: 1px solid #ccc;  /* Borda cinza para destacar */
-    }
-
-
-    /* Estilo para o texto dentro do balão de upload */
-    .stFileUploader label {
-        color: black !important;  /* Texto preto */
-    }
-
-
-    /* Estilo para o botão de upload */
-    .stFileUploader button {
-        background-color: #8dc50b;  /* Verde */
-        color: white;  /* Texto branco */
-        border-radius: 5px;
-        border: none;
-        padding: 8px 16px;
-    }
-
-
-    /* Estilo para o texto de drag and drop */
-    .stFileUploader div[data-testid="stFileUploaderDropzone"] {
-        color: black !important;  /* Texto preto */
-    }
-
-
-    /* Estilo para o container de avisos (st.warning) */
-    div[data-testid="stNotification"] > div > div {
-        background-color: white !important;  /* Fundo branco */
-        color: black !important;  /* Texto preto */
-        border-radius: 10px !important;
-        padding: 10px !important;
-        border: 1px solid #ccc !important;  /* Borda cinza para destacar */
-    }
-
-
-    /* Estilo para o ícone de aviso */
-    div[data-testid="stNotification"] > div > div > div:first-child {
-        color: #8dc50b !important;  /* Cor do ícone (verde) */
-    }
-
-
-    /* Estilo para o subtítulo */
-    .subtitulo {
-        font-size: 16px !important;  /* Tamanho da fonte reduzido */
-        color: black !important;  /* Cor do texto alterada para preto */
-    }
-
-
-    /* Estilo para o rótulo do campo de entrada na sidebar */
-    .stSidebar label {
-        color: white !important;  /* Cor do texto branco */
-    }
-
-
-    /* Estilo para o texto na caixa de entrada do chat */
-    .stChatInput input {
-        color: white !important;  /* Cor do texto branco */
-    }
-
-
-    /* Estilo para o placeholder na caixa de entrada do chat */
-    .stChatInput input::placeholder {
-        color: white !important;  /* Cor do placeholder branco */
-    }
-
-
-    /* Estilo para o texto na caixa de entrada do chat */
-div.stChatInput textarea {
-    color: white !important;  /* Cor do texto branco */
+/* Sidebar */
+.stSidebar .stMarkdown, .stSidebar label,
+.stSidebar .stTextInput, .stSidebar .stTextArea,
+.stSidebar .stButton, .stSidebar .stExpander {
+    color: white !important;
 }
 
-
-/* Estilo para o placeholder na caixa de entrada do chat */
-div.stChatInput textarea::placeholder {
-    color: white !important;  /* Cor do placeholder branco */
-    opacity: 1;  /* Garante que o placeholder seja totalmente visível */
+/* Principal */
+.stMarkdown, .stTextInput, .stTextArea,
+.stButton, .stExpander {
+    color: black !important;
 }
-   
-     /* Estilo para o ícone */
-    .stImage > img {
-        filter: drop-shadow(0 0 0 #8dc50b);  /* Aplica a cor #8dc50b ao ícone */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
+/* Uploader */
+.stFileUploader > div > div {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.stFileUploader label {
+    color: black !important;
+}
+.stFileUploader button {
+    background-color: #8dc50b;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 16px;
+}
 
-# Caminho para a logo do bot
+/* Notificações */
+div[data-testid="stNotification"] > div > div {
+    background-color: white !important;
+    color: black !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+}
+div[data-testid="stNotification"] > div > div > div:first-child {
+    color: #8dc50b !important;
+}
+
+/* Subtítulo */
+.subtitulo {
+    font-size: 16px !important;
+    color: black !important;
+}
+
+/* Chat input */
+.stChatInput input, .stChatInput textarea {
+    color: white !important;
+}
+.stChatInput input::placeholder, .stChatInput textarea::placeholder {
+    color: white !important;
+    opacity: 1;
+}
+
+/* Logo */
+.stImage > img {
+    filter: drop-shadow(0 0 0 #8dc50b);
+}
+</style>
+"""
+st.markdown(theme_css, unsafe_allow_html=True)
+
+# Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
-
-
-# Verificar se o arquivo da logo existe
-if os.path.exists(LOGO_BOT_PATH):
-    try:
-        LOGO_BOT = Image.open(LOGO_BOT_PATH)
-    except Exception as e:
-        st.error(f"Erro ao carregar a logo: {e}")
-        LOGO_BOT = None
-else:
-    LOGO_BOT = None
-
-
-# Caminho para o ícone personalizado
 ICON_PATH = "assets/icon_cade.png"
 
+LOGO_BOT = Image.open(LOGO_BOT_PATH) if os.path.exists(LOGO_BOT_PATH) else None
 
-# Verificar se o arquivo do ícone existe
+# Header com ícone e título
 if os.path.exists(ICON_PATH):
-    try:
-        # Usar st.columns para posicionar o ícone ao lado do título
-        col1, col2 = st.columns([1.5, 4])  # Ajuste as proporções conforme necessário
-        with col1:
-            st.image(ICON_PATH, width=100)  # Exibe o ícone com largura de 30px
-        with col2:
-            st.title("AD&M IA")  # Exibe o título
-    except Exception as e:
-        st.error(f"Erro ao carregar o ícone: {e}")
+    col1, col2 = st.columns([1.5, 4])
+    with col1:
+        st.image(ICON_PATH, width=100)
+    with col2:
+        st.title("AD&M IA")
 else:
-    st.title("AD&M IA")  # Fallback se o ícone não existir
+    st.title("AD&M IA")
 
-
-# Subtítulo com fonte reduzida e texto preto
 st.markdown(
     '<cp class="subtitulo">Sou uma IA desenvolvida pela AD&M consultoria empresarial, reunindo estudos e documentos sobre seu projeto e estou aqui para te ajudar 😁 !</p>',
     unsafe_allow_html=True
 )
 
-
-# Inicialização segura das variáveis de estado
+# Estado
 if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
 
-
-# Função para salvar o estado em um arquivo JSON
 def salvar_estado():
-    estado = {
-        "mensagens_chat": st.session_state.mensagens_chat
-    }
     with open("estado_bot.json", "w") as f:
-        json.dump(estado, f)
+        json.dump({"mensagens_chat": st.session_state.mensagens_chat}, f)
 
-
-# Função para carregar o estado de um arquivo JSON
 def carregar_estado():
     if os.path.exists("estado_bot.json"):
         with open("estado_bot.json", "r") as f:
             estado = json.load(f)
             st.session_state.mensagens_chat = estado.get("mensagens_chat", [])
-
-
-# Carregar o estado ao iniciar o aplicativo
 carregar_estado()
 
-
-# Função para limpar o histórico do chat
 def limpar_historico():
     st.session_state.mensagens_chat = []
     salvar_estado()
 
-
-# Carregar arquivos de texto nativos como contexto
 def carregar_contexto():
     contexto = ""
-
-
-    # Adicione aqui os arquivos de texto que você deseja usar como contexto
-    arquivos_contexto = [
-        ("contexto1.txt"),
-        ("contexto2.txt"),
-        ("contexto3.txt"),
-        ("contexto4.txt")
-        ]
-
-
-
-
+    arquivos_contexto = ["contexto1.txt", "contexto2.txt", "contexto3.txt", "contexto4.txt"]
     for arquivo in arquivos_contexto:
         if os.path.exists(arquivo):
             with open(arquivo, "r", encoding="utf-8") as f:
                 contexto += f.read() + "\n\n"
         else:
             st.error(f"Arquivo de contexto não encontrado: {arquivo}")
-   
     return contexto
 
-
-# Carregar o contexto ao iniciar o aplicativo
 contexto = carregar_contexto()
 
-
-# Função para dividir o texto em chunks
-def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
+def dividir_texto(texto, max_tokens=800):
     palavras = texto.split()
-    chunks = []
-    chunk_atual = ""
+    chunks, chunk_atual = [], ""
     for palavra in palavras:
         if len(chunk_atual.split()) + len(palavra.split()) <= max_tokens:
             chunk_atual += palavra + " "
@@ -368,87 +163,76 @@ def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
         chunks.append(chunk_atual.strip())
     return chunks
 
-
-# Função para selecionar chunks relevantes com base na pergunta
 def selecionar_chunks_relevantes(pergunta, chunks):
-    # Lógica simples para selecionar chunks com base em palavras-chave
     palavras_chave = pergunta.lower().split()
-    chunks_relevantes = []
-    for chunk in chunks:
-        if any(palavra in chunk.lower() for palavra in palavras_chave):
-            chunks_relevantes.append(chunk)
-    return chunks_relevantes[:4]  # Limita a 4 chunks para evitar excesso de tokens
+    return [c for c in chunks if any(p in c.lower() for p in palavras_chave)][:4]
 
-
-# Função para gerar resposta com OpenAI usando GPT-4
 def gerar_resposta(texto_usuario):
     if not contexto:
         return "Erro: Nenhum contexto carregado."
 
+    chunks = dividir_texto(contexto)
+    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)
 
-    chunks = dividir_texto(contexto)  # Divide o texto em chunks
-    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
+    contexto_pergunta = """
+Você é a AD&M IA, uma inteligência artificial treinada com base nos projetos, documentos e metodologias utilizadas pela AD&M Consultoria Empresarial. Seu papel é:
 
+1. Fornecer respostas claras, educadas e baseadas em dados reais;
+2. Gerar insights estratégicos e práticos que o cliente possa aplicar imediatamente;
+3. Sempre responder com objetividade, linguagem simples e foco em Administração, Gestão de Processos, Planejamento Estratégico e Soluções Empresariais;
+4. Se basear no conteúdo a seguir (trechos de projetos anteriores) para responder a pergunta;
+5. Caso não encontre resposta no contexto, responda com sugestões realistas baseadas em boas práticas de consultoria júnior.
 
-    contexto_pergunta = "Você é uma IA feita pela AD&M Consultoria, que busca dar respostas especializadas sobre a Administração com base nos projetos entregues pela AD&M, sendo funadamental auxiliar o cliente de forma clara, educada e eficiente, além de gerar insights estratégicos e analíticos, de maneira extremamente aplicável e prática para o cliente, para que com os seus insights ele possa aplicar o que foi sugerido:\n\n"
+Mantenha sempre um tom profissional e propositivo.
+
+Abaixo estão trechos relevantes para sua análise:
+"""
     for i, chunk in enumerate(chunks_relevantes):
-        contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
-
+        contexto_pergunta += f"\n--- Parte {i+1} do Contexto ---\n{chunk}\n"
 
     mensagens = [
         {"role": "system", "content": contexto_pergunta},
         {"role": "user", "content": texto_usuario}
     ]
 
-
-    tentativas = 3  # Número de tentativas
-    for tentativa in range(tentativas):
+    for tentativa in range(3):
         try:
-            # Implementar controle de taxa
-            time.sleep(1)  # Adiciona um atraso de 1 segundo entre as solicitações
+            time.sleep(1)
             resposta = openai.ChatCompletion.create(
-                model="gpt-4o",  # Usando o GPT-4o
+                model="gpt-4o",
                 messages=mensagens,
                 temperature=0.5,
-                max_tokens=800  # Limita a resposta a 800 tokens
+                max_tokens=800
             )
             return resposta["choices"][0]["message"]["content"]
         except Exception as e:
-            if tentativa < tentativas - 1:  # Se não for a última tentativa
-                time.sleep(2)  # Aguarda 2 segundos antes de tentar novamente
+            if tentativa < 2:
+                time.sleep(2)
                 continue
             else:
                 return f"Erro ao gerar a resposta: {str(e)}"
 
-
-# Adicionar a logo na sidebar
+# Sidebar
 if LOGO_BOT:
-    st.sidebar.image(LOGO_BOT, width=300)  # Ajuste o tamanho conforme necessário
+    st.sidebar.image(LOGO_BOT, width=300)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
-
-# Interface do Streamlit
 api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
 if api_key:
     openai.api_key = api_key
-
-
-    # Botão para limpar o histórico do chat
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
 else:
     st.warning("Por favor, insira sua chave de API para continuar.")
 
-
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
     resposta = gerar_resposta(user_input)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
-    salvar_estado()  # Salva o estado após cada interação
-
+    salvar_estado()
 
 with st.container():
     if st.session_state.mensagens_chat:
@@ -458,7 +242,8 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
+                    st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+
