@@ -66,7 +66,7 @@ def limpar_historico():
 def carregar_contexto():
     contexto = ""
     arquivos_contexto = [
-        "contexto1.txt", "contexto2.txt", "contexto3.txt", "contexto4.txt",
+        "contexto4.pdf"
         "contexto5.pdf"
     ]
 
