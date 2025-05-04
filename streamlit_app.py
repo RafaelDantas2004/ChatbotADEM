@@ -129,7 +129,7 @@ Abaixo estão trechos relevantes para sua análise:
             resposta = openai.ChatCompletion.create(
                 model="gpt-4o",
                 messages=mensagens,
-                temperature=0.5,
+                temperature=0.6,
                 max_tokens=800
             )
             st.session_state.perguntas_respondidas.add(pergunta_hash)
