@@ -7,6 +7,8 @@ import json
 import hashlib
 import streamlit.components.v1 as components
 import speech_recognition as sr
+import pdfplumber
+import easyocr
 
 # Configurações iniciais
 st.set_page_config(
@@ -64,13 +66,47 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
+reader = easyocr.Reader(['pt'], gpu=False)
+
 def carregar_contexto():
     contexto = ""
-    arquivos_contexto = ["contexto1.txt", "contexto2.txt", "contexto3.txt", "contexto4.txt"]
+
+    arquivos_contexto = [
+        "contexto1.txt",
+        "contexto2.txt",
+        "contexto3.txt",
+        "contexto4.txt",
+        "contexto5.pdf",
+        "imagem1.png",
+        "imagem2.jpg"
+    ]
+
     for arquivo in arquivos_contexto:
-        if os.path.exists(arquivo):
-            with open(arquivo, "r", encoding="utf-8") as f:
-                contexto += f.read() + "\n\n"
+        if not os.path.exists(arquivo):
+            continue
+
+        texto = ""
+        try:
+            if arquivo.endswith(".txt"):
+                with open(arquivo, "r", encoding="utf-8") as f:
+                    texto = f.read()
+            elif arquivo.endswith(".pdf"):
+                with pdfplumber.open(arquivo) as pdf:
+                    for page in pdf.pages:
+                        page_text = page.extract_text()
+                        if page_text:
+                            texto += page_text + "\n"
+            elif arquivo.endswith((".png", ".jpg", ".jpeg")):
+                imagem = Image.open(arquivo)
+                resultado = reader.readtext(imagem, detail=0, paragraph=True)
+                texto = "\n".join(resultado)
+        except Exception as e:
+            st.warning(f"Erro ao processar {arquivo}: {e}")
+            continue
+
+        if texto.strip():
+            contexto += f"\n\n--- Conteúdo de {arquivo} ---\n{texto.strip()}\n"
+
     return contexto
 
 contexto = carregar_contexto()
