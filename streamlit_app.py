@@ -1,12 +1,11 @@
-import streamlit as st
+import streamlit as st 
 import openai
 import os
 from PIL import Image
 import time
 import json
 import hashlib
-import streamlit.components.v1 as components
-import speech_recognition as sr
+import glob
 
 # Configurações iniciais
 st.set_page_config(
@@ -14,9 +13,6 @@ st.set_page_config(
     page_icon="💙",
     layout="wide",
 )
-
-# CSS personalizado para estilizar a interface (mantido)
-# ... (CSS permanece inalterado)
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -35,7 +31,7 @@ else:
     st.title("AD&M IA")
 
 st.markdown(
-    '<cp class="subtitulo">Sou uma IA desenvolvida pela AD&M consultoria empresarial, reunindo estudos e documentos sobre seu projeto e estou aqui para te ajudar 😁 !</p>',
+    '<p class="subtitulo">Sou uma IA desenvolvida pela AD&M consultoria empresarial, reunindo estudos e documentos sobre seu projeto e estou aqui para te ajudar 😁 !</p>',
     unsafe_allow_html=True
 )
 
@@ -45,11 +41,14 @@ if "perguntas_respondidas" not in st.session_state:
     st.session_state.perguntas_respondidas = set()
 
 def salvar_estado():
-    with open("estado_bot.json", "w") as f:
-        json.dump({
-            "mensagens_chat": st.session_state.mensagens_chat,
-            "perguntas_respondidas": list(st.session_state.perguntas_respondidas)
-        }, f)
+    try:
+        with open("estado_bot.json", "w") as f:
+            json.dump({
+                "mensagens_chat": st.session_state.mensagens_chat,
+                "perguntas_respondidas": list(st.session_state.perguntas_respondidas)
+            }, f)
+    except Exception as e:
+        st.error(f"Erro ao salvar estado: {e}")
 
 def carregar_estado():
     if os.path.exists("estado_bot.json"):
@@ -64,13 +63,12 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
+# 🔄 NOVO: carregar automaticamente arquivos da pasta /contextos/
 def carregar_contexto():
     contexto = ""
-    arquivos_contexto = ["contexto1.txt", "contexto2.txt", "contexto3.txt", "contexto4.txt"]
-    for arquivo in arquivos_contexto:
-        if os.path.exists(arquivo):
-            with open(arquivo, "r", encoding="utf-8") as f:
-                contexto += f.read() + "\n\n"
+    for caminho in sorted(glob.glob("contextos/*.txt")):
+        with open(caminho, "r", encoding="utf-8") as f:
+            contexto += f.read() + "\n\n"
     return contexto
 
 contexto = carregar_contexto()
@@ -125,15 +123,16 @@ Abaixo estão trechos relevantes para sua análise:
 
     for tentativa in range(3):
         try:
-            time.sleep(1)
-            resposta = openai.ChatCompletion.create(
-                model="gpt-4o",
-                messages=mensagens,
-                temperature=0.6,
-                max_tokens=800
-            )
-            st.session_state.perguntas_respondidas.add(pergunta_hash)
-            return resposta["choices"][0]["message"]["content"]
+            with st.spinner("Pensando..."):
+                time.sleep(1)
+                resposta = openai.ChatCompletion.create(
+                    model="gpt-4o",
+                    messages=mensagens,
+                    temperature=0.6,
+                    max_tokens=800
+                )
+                st.session_state.perguntas_respondidas.add(pergunta_hash)
+                return resposta["choices"][0]["message"]["content"]
         except Exception as e:
             if tentativa < 2:
                 time.sleep(2)
@@ -148,13 +147,14 @@ else:
     st.sidebar.markdown("**Logo não encontrada**")
 
 api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
-if api_key:
+if not api_key:
+    st.warning("Por favor, insira sua chave de API para continuar.")
+    st.stop()
+else:
     openai.api_key = api_key
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
-else:
-    st.warning("Por favor, insira sua chave de API para continuar.")
 
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
@@ -175,6 +175,7 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+
 
 
 
