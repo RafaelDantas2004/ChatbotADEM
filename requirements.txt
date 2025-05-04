@@ -14,5 +14,4 @@ pillow
 pydub
 ffmpeg
 speechrecognition
-easyocr
-torch
+
