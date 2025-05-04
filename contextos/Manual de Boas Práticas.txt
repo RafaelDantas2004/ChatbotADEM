@@ -1,0 +1,224 @@
+Manual de Boas Práticas
+Consultores: Isaías Silva e Pedro Albuquerque
+Gerente: Carolina Braga
+Customer Success: Luana Sampaio
+
+SUMÁRIO
+Contextualização………………..…………………………………….3
+Boas Práticas…………………………………………………………...5
+Concierge……………………………………….……..…………..6
+Faturamento……………………………..……………………..8
+Financeiro………………..………………………………………10
+Marcação de Exames………………………………………..11
+Recepção………………………………………………..………..12
+Resultado de Exames………………………………..…….13
+Telefonia…………………………………………………….……14
+Triagem………………………………………………………..…..16
+Planilha de Indicadores…...............................................17
+O que são…………………………………………………………18
+RG dos Indicadores…………………………………………19
+Planilha de Indicadores………………………..……..…20
+2
+
+Contextualização
+Contextualização
+
+Contextualização
+	A eficiência operacional é um dos pilares fundamentais para o sucesso de qualquer organização no setor de saúde. No caso da Clínica CardioFitness, que atende uma alta demanda de pacientes e lida com múltiplos processos administrativos e assistenciais, a gestão estruturada de processos torna-se essencial para garantir agilidade, qualidade e segurança nos atendimentos.
+Diante desse cenário, foi realizado um mapeamento detalhado dos processos da clínica, abrangendo todos os setores críticos, desde a recepção e marcação de exames até o faturamento e resultados de exames. Esse trabalho possibilitou a identificação de gargalos operacionais, oportunidades de melhoria e potenciais otimizações que podem tornar os processos mais eficientes, reduzindo desperdícios de tempo e recursos, além de aprimorar a experiência do paciente.
+O objetivo principal deste Manual de Boas Práticas é consolidar as principais descobertas do mapeamento e propor diretrizes para melhoria contínua, garantindo que a clínica possa operar com alto desempenho, minimizar falhas e elevar o nível de satisfação dos pacientes e colaboradores.
+As boas práticas recomendadas neste documento foram desenvolvidas analisando todos os 29 processos mapeados e buscando melhorar tais.
+
+4
+4
+
+Boas Práticas
+Boas Práticas
+
+Concierge
+Durante o mapeamento do Setor de Concierge, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Atendimento passivo, onde o concierge aguarda que o paciente solicite ajuda.
+Melhoria sugerida:
+Capacitação e treinamento contínuo da equipe de concierge: Os profissionais responsáveis pelo concierge devem passar por treinamentos constantes para aprimorar sua comunicação e abordagem ao paciente. Treinamentos devem incluir técnicas de atendimento humanizado, solução de problemas, postura profissional e técnicas de mediação de conflitos. Além disso, é essencial que o concierge conheça detalhadamente os serviços prestados pela clínica para fornecer informações precisas e rápidas.
+Problema identificado:
+Ausência de um sistema digital que permita orientação rápida e eficiente.
+Melhoria sugerida:
+Implementação de Totens Interativos e QR Codes para Autonomia do Paciente: Totens interativos podem ser instalados nas principais áreas da clínica para fornecer orientação digital ao paciente, permitindo que ele encontre sua sala de atendimento, horários e informações sobre exames sem precisar procurar um atendente. Além disso, a implementação de QR Codes em pontos estratégicos permitirá que os pacientes usem seus celulares para acessar mapas da clínica, guias de atendimento e informações úteis.
+6
+6
+
+Concierge
+Problema identificado:
+Dependência total do concierge, sem alternativas automatizadas para informações básicas.
+Melhoria sugerida:
+Criação de um Sistema de Chamadas Automáticas para Pacientes: Ao invés de o concierge ter que buscar pacientes na recepção ou nos corredores da clínica, um sistema de chamadas eletrônicas pode ser implementado, avisando os pacientes sobre o momento de sua consulta através de telas digitais e mensagens via WhatsApp.
+7
+7
+
+Faturamento
+Durante o mapeamento do Setor de Faturamento, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Atrasos na autorização de guias, impactando o atendimento ao paciente.
+Melhoria sugerida:
+Automação do Processo de Autorização de Guias Médicas: A implementação de um sistema automatizado e integrado aos convênios permitirá que guias sejam analisadas e autorizadas mais rapidamente, reduzindo significativamente o tempo de espera dos pacientes. Esse sistema pode incluir revisão automática de dados, minimizando erros no preenchimento e reduzindo glosas.
+Problema identificado:
+Processo manual e burocrático, elevando o tempo de conferência de documentos.
+Melhoria sugerida:
+Digitalização Completa do Controle de Cobranças e Pagamentos:  A clínica deve adotar um sistema de rastreamento automático de cobranças e pagamentos, que atualize o status das faturas em tempo real e alerte a equipe de faturamento sobre pendências ou inconsistências. Essa solução reduz o número de chamadas telefônicas e e-mails para os convênios e permite um maior controle financeiro.
+8
+8
+
+Faturamento
+Problema identificado:
+Baixa automação na comunicação com convênios, causando atrasos na cobrança.
+Melhoria sugerida:
+Padronização do Processo de Conferência e Envio de Faturas: Criar um checklist digital obrigatório antes do envio de faturas para os convênios ajudará a garantir que todas as informações estejam corretas. Esse checklist pode ser inserido no próprio sistema de faturamento e exigirá que cada item seja revisado antes da finalização do processo.
+9
+9
+
+Financeiro
+Durante o mapeamento do Setor de Financeiro, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Baixa integração entre faturamento e controle financeiro, gerando inconsistências nos recebimentos.
+Melhoria sugerida:
+Criação de um Painel de Controle Financeiro em Tempo Real: A implementação de um dashboard financeiro integrado ao sistema da clínica permitirá que a gestão acompanhe em tempo real os recebimentos, pagamentos, faturamento mensal e possíveis inadimplências, garantindo uma visão clara sobre a saúde financeira da empresa.
+Problema identificado:
+Falta de um sistema eficiente para controle da inadimplência.
+Melhoria sugerida:
+Automação da Gestão de Pagamentos e Conciliação Bancária: O uso de conciliadores bancários automáticos reduz a necessidade de verificação manual de pagamentos, garantindo que todas as entradas e saídas estejam corretamente registradas no sistema.
+
+10
+10
+
+Marcação de Exames
+Durante o mapeamento do Setor de Marcação de Exames, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Uso excessivo de papel, tornando o processo de agendamento mais lento e sujeito a erros.
+Melhoria sugerida:
+Conscientizar e treinar os médicos: Muito médicos ainda fazem o uso excessivo do papel, então deves-se feito principalmente uma conscientização para um uso mais digital, visto que tal uso é mais rápido e eficiente.
+Problema identificado:
+Processo manual de conferência de horários, impactando a eficiência do setor.
+Melhoria sugerida:
+Confirmação de Exames via WhatsApp e SMS: A automação do processo de confirmação de exames por meio de mensagens automáticas via WhatsApp e SMS reduzirá significativamente o número de faltas, garantindo uma melhor ocupação da agenda médica.
+
+11
+11
+
+Recepção
+Durante o mapeamento do Setor de Recepção, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Filas longas na recepção devido à necessidade de preenchimento manual de fichas.
+Melhoria sugerida:
+Digitalização Completa do Cadastro de Pacientes: A implementação de um sistema de pré-cadastro online permitirá que os pacientes enviem seus dados antes da consulta, reduzindo o tempo de atendimento na recepção e evitando longas filas. Além disso, um sistema integrado pode sincronizar informações automaticamente entre a recepção e os demais setores, eliminando a necessidade de duplicação de dados.
+Problema identificado:
+Duplicidade de informações, exigindo que pacientes recorrentes forneçam os mesmos dados em múltiplas visitas.
+Melhoria sugerida:
+Automação do Processo de Check-in na Recepção: A instalação de totens de autoatendimento permitirá que os pacientes realizem seu próprio check-in ao chegar à clínica, sem precisar passar pelo balcão. Dessa forma, pacientes recorrentes poderão apenas confirmar suas informações, reduzindo filas e otimizando o tempo da equipe.
+
+12
+12
+
+Resultado de Exames
+Durante o mapeamento do Setor de Resultado de Exames, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Pacientes precisam ligar para saber se seus exames estão prontos.
+Melhoria sugerida:
+Notificação Automática de Disponibilidade de Exames: Ao invés de o paciente precisar ligar para a clínica para verificar se seu exame já está pronto, um sistema de notificação automática via SMS e WhatsApp informará assim que o laudo for liberado, garantindo mais eficiência no processo.
+Problema identificado:
+Risco de extravio ou perda de exames físicos.
+Melhoria sugerida:
+Assinatura Digital e Armazenamento Seguro: Todos os exames devem ser digitalizados e assinados eletronicamente, garantindo que a versão original esteja sempre disponível no sistema e possa ser acessada pelo paciente ou pelo médico sempre que necessário.
+
+13
+13
+
+Telefonia
+Durante o mapeamento do Setor de Telefonia, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Grande volume de ligações para informações básicas, sobrecarregando os atendentes.
+Melhoria sugerida:
+Criação de um Chatbot no WhatsApp para Atendimento Automático: A implementação de um chatbot programado para responder perguntas frequentes, como horários de exames, documentos necessários e resultados de exames, pode reduzir drasticamente o número de ligações recebidas pelos atendentes, permitindo que a equipe foque em atendimentos mais complexos.
+Problema identificado:
+Pacientes têm dificuldades para falar com a clínica nos horários de pico.
+Melhoria sugerida:
+Atendimento Prioritário e Fila Inteligente: Um sistema de fila virtual pode ser implementado, priorizando ligações urgentes, como dúvidas sobre exames emergenciais e reagendamentos. Esse sistema pode ainda permitir que o paciente solicite um retorno automático, reduzindo o tempo de espera ao telefone.
+14
+14
+
+Telefonia
+Problema identificado:
+Dificuldade de acompanhar agendamentos e confirmações via telefone.
+Melhoria sugerida:
+Automação do Processo de Confirmação de Consultas e Exames: A clínica pode automatizar a confirmação de consultas e exames via SMS e WhatsApp, reduzindo faltas e melhorando o aproveitamento da agenda médica. Além disso, um sistema integrado ao prontuário eletrônico pode registrar automaticamente as confirmações, permitindo um controle mais eficiente da ocupação da agenda.
+
+15
+15
+
+Triagem
+Durante o mapeamento do Setor de Triagem, algumas lacunas foram identificadas e anotadas para que fossem propostas boas práticas neste manual. 
+
+Problema identificado:
+Cadastro manual dos pacientes na triagem, aumentando o tempo de atendimento.
+Melhoria sugerida:
+Automação da Inserção de Dados da Triagem Diretamente no Prontuário: Os dados coletados na triagem devem ser inseridos diretamente no sistema da clínica, eliminando a necessidade de anotações manuais e reduzindo o risco de erros ou perda de informações. Essa integração garante que os médicos tenham acesso em tempo real aos dados do paciente.
+Problema identificado:
+Demora no tempo médio total da realização da triagem completa.
+Melhoria sugerida:
+Criação de Indicador do Tempo Médio da Triagem Completa: Deve-se preencher o indicador já criado com as quantidades de triagem completas realiadas. Sendo assim, será monitorado o tempo médio para ver se a triagem está sendo eficiente e rápida, visando diminuir o tempo de espera dos pacientes.
+16
+16
+
+Indicadores
+Indicadores
+
+O que são?
+	Os indicadores são métricas ou medidas quantificáveis usadas para monitorar o desempenho de um processo, atividade ou resultado dentro de uma organização. Eles servem como ferramentas essenciais para avaliar se as metas estabelecidas estão sendo alcançadas, além de ajudar a identificar áreas de melhoria. 
+A importância dos indicadores para mensurar a eficiência das boas práticas propostas em uma empresa está na sua capacidade de fornecer dados objetivos e concretos sobre o impacto das ações implementadas. Ao usar indicadores, a empresa consegue acompanhar o progresso de suas iniciativas, identificar rapidamente desvios ou falhas, e tomar decisões baseadas em dados precisos. Isso facilita ajustes nas estratégias, assegura a eficácia das boas práticas adotadas e contribui para a otimização de recursos, garantindo que a organização opere de maneira mais eficiente e alinhada com seus objetivos estratégicos. 
+Nesse sentido, alguns indicadores foram criados e automatizados em uma planilha no Google Planilhas para que o CardioFitness possa mensurar de forma tangível a eficiência de algumas das boas práticas propostas neste documento.
+18
+18
+
+RG dos indicadores
+	O Registro Geral dos Indicadores é um conjunto de métricas projetado para mensurar o desempenho e os resultados dentro de uma empresa. Ele é importante porque reúne vários dados e indicadores que permitem a avaliação detalhada das ações e atividades realizadas. Além disso, ele possibilita uma visão clara e quantitativa dos resultados alcançados, possibilitando a análise e o acompanhamento contínuo do progresso em relação aos objetivos estratégicos da empresa. Um RG de um indicador consiste em:
+
+Nome do indicador;
+Fórmula;
+Meta;
+Polaridade;
+Unidade de Medida;
+Responsável pela Mensuração;
+Responsável pela Análise;
+Periodicidade da Mensuração;
+Periodicidade da Coleta;
+Fonte de Dados.
+19
+19
+
+Planilha de Indicadores
+	Com isso, clique no ícone abaixo para acessar a planilha com os indicadores automatizados:
+20
+20
+
+Isaias Silva (Consultor):
+isaiassilva@admconsultoria.com.br
+
+Pedro Faria (Consultor):
+pedrofaria@admconsultoria.com.br
+
+Carolina Braga (Gerente):
+carolinabraga@admconsultoria.com.br
+
+Luana Sampaio (Customer Success):
+luanasampaio@admconsultoria.com.br
+
+Dúvidas ?
+Entre em contato conosco
+

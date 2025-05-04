@@ -1,0 +1,187 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+14/02/2025
+Tarefa
+Triagem
+Responsável 
+Triagem e recepção
+X
+Objetivo
+Realizar a triagem adequadamente
+Recursos Necessários
+Funcionários;
+Sistema;
+Bioimpedância, oximetria e  dinamometria
+Ações (1/4)
+1.0 Receber paciente.
+Solicitar a retirar aparelhos, metal;
+Solicitar a retirar a camisa, caso seja manga longa, subir a mesma;
+Solicitar a deitar com a cabeça pra baixo;
+Solicitar a por os braços ao lado do corpo;
+Caso esteja de calça, subir a calça.
+1.1 Cadastrar paciente.
+Acessar Software wincardio;
+Clicar em exame;
+Cadastrar paciente; 
+Adicionar nome completo;
+Adicionar sexo;
+Adicionar data de nascimento;
+Salvar e novo exame.
+2.0 Colocar equipamentos.
+Botar presilha no tornozelo;
+Nós dois pulsos: Verde e amarelo esquerdo, preto e vermelho direito. Cores fortes embaixo e leves em cima.
+Ventosa com numeração: 6 unidades.
+Ir em ordem decrescente;
+Apertar ventosa, e soltar;
+Solicitar o paciente não mexer.
+3.0 Realizar a avaliação dos batimentos.
+Esperar estabilizar os batimentos 
+Caso não estabilizou
+
+3
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+14/02/2025
+Tarefa
+Triagem
+Responsável 
+Triagem e recepção
+X
+Objetivo
+Realizar a triagem adequadamente
+Recursos Necessários
+Funcionários;
+Sistema;
+Bioimpedância, oximetria e  dinamometria
+Ações (2/4)
+Pegar papel, por álcool no papel, e passar nos locais da ventosa;
+Registrar Exame;
+Clicar em “registrar ecg”;
+Editar registros;
+Escolher o melhor;
+Clicar em “imprimir”;
+Dar ok no registro;
+Pedir pra levantar;
+Entrega o papel.
+Paciente irá fazer a Bioimpedância?
+NÃO
+4.0 Finalizar processo.
+
+FIM DO PROCESSO
+
+Paciente irá fazer a Bioimpedância?
+SIM
+5.0 Solicitar o paciente a tirar o tênis e meia, e aparelhos.
+6.0 Acessar software Looking Body.
+Clicar duas vezes no ícone do software;
+Clicar em “Sim”.
+Paciente já fez o exame e tem cadastro no sistema? 
+SIM
+7.0 Realizar Consulta de Pacientes.
+Adicionar nome completo do paciente.
+8.0 Ir para atividade 10.0.
+
+4
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+14/02/2025
+Tarefa
+Triagem
+Responsável 
+Triagem e recepção
+X
+Objetivo
+Realizar a triagem adequadamente
+Recursos Necessários
+Funcionários;
+Sistema;
+Bioimpedância, oximetria e  dinamometria
+Ações (3/4)
+Paciente já fez o exame e tem cadastro no sistema? 
+NÃO
+9.0 Realizar cadastro de pacientes.
+Clicar em registrar novo paciente;
+Adicionar nome, data de nascimento, sexo.
+10.0 Iniciar análise de composição corporal.
+Solicitar a subir na balança;
+Direcionar a por o calcanhar na bolinha;
+Direcionar a olhar pra frente;
+Clicar em “registrar”;
+Dar barra para ele segurar e olhar pra frente;
+Finalizado clicar em “confirmar”.
+10.1 Registrar exame.
+Clicar em “imprimir”;
+Salvar na área de trabalho com o nome completo e exame;
+Abrir exame, clicar em “imprimir”;
+Entregar o exame;
+Clicar em “brother” para imprimir.
+Dra, Marisa solicita a por na pasta compartilhada.
+Paciente irá fazer oximetria?
+NÃO
+11.0 Finalizar atividade.
+
+FIM DO PROCESSO
+
+Paciente irá fazer oximetria?
+SIM
+
+
+5
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+14/02/2025
+Tarefa
+Triagem
+Responsável 
+Triagem e recepção
+X
+Objetivo
+Realizar a triagem adequadamente
+Recursos Necessários
+Funcionários;
+Sistema;
+Bioimpedância, oximetria e  dinamometria
+Ações (4/4)
+12.0 Ligar aparelho.
+12.1 Solicitar a por o dedo no oxímetro.
+Indicador direito.
+12.2 Aguardar a medição de oxigenação sanguínea.
+Até 100 é normal.
+Paciente irá fazer dinamometria?
+NÃO
+13.0 Ir para atividade 16.0.
+Paciente irá fazer dinamometria?
+SIM
+14.0 Iniciar análise muscular da lombar.
+Solicitar puxar a lombar;
+Entregar dinamômetro.
+15.0 Iniciar análise muscular da lombar.
+Pedir para apertar direita e esquerda.
+Palmar ME e MD.
+16.0 Registrar exame completo de triagem.
+Abrir arquivo “triagem completa” na aba de trabalho;
+Clicar em “salvar como”;
+Abrir pasta compartilhada;
+Selecionar pasta do médico;
+Adicionar nome completo do paciente no nome do arquivo, dados do exame de oximetria e dados do exame de dinamometria;
+Clicar “Ctrl P” e em “Ok”.
+
+FIM DO PROCESSO

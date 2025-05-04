@@ -1,0 +1,263 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Atestado de Comparecimento.
+Responsável 
+Atendentes.
+Objetivo
+Garantir a entrega rápida, precisa e padronizada do documento que comprova a presença do paciente na clínica.
+Recursos Necessários
+Impressora
+Conhecimento do software Word
+Comunicação com o médico
+Ações
+1.0 Localizar paciente na clínica.
+Entrar no modelo no word.
+Alterar o nome para o nome do paciente.
+Fazer a impressão.
+Carimbar atestado.
+Solicitar assinatura do médico responsável.
+Entregar ao paciente.
+
+FIM DO PROCESSO
+
+
+
+3
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+07/02/2025
+Tarefa
+Preenchimento de planilhas do médico.
+Responsável 
+Atendentes.
+Objetivo
+Garantir o registro organizado e atualizado das informações relacionadas aos exames marcados para cada paciente.
+Recursos Necessários
+Conhecimento do software Excel
+Ações
+1.0 Abrir pasta compartilhada. 
+Acessar planilha de acompanhamento diário.
+Adicionar o funcionário.
+Adicionar nome do paciente.
+Adicionar exame marcado
+
+FIM DO PROCESSO
+
+
+
+4
+Procedimento Operacional Padrão
+N.º 3
+V. 1
+Data
+07/02/2025
+Tarefa
+Receitas médicas.
+Responsável 
+Atendentes, Dr. Renan e Dra. Marisa.
+Objetivo
+Garantir a correta gestão e controle das receitas médicas
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Ações
+1.0 Acessar prontuário do paciente. 
+Acessar o software Medware;
+O atendente deverá solicitar os dados pessoais do paciente, como nome completo e data de nascimento;
+Acessar a aba de agenda de receita;
+Acessar o prontuário no dia em que adicionou na agenda.
+2.0 Acessar receita do paciente.
+No software da Medware, o atendente deverá clicar no botão de receita;
+Clicar em documentos;
+Clicar em receitas especiais;
+Clicar em histórico;
+Verificar se toma remédio e a quanto tempo.
+2.1 Fazer a gestão da receita. 
+Após analisar a receita do paciente, o atendente deverá copiar a receita;
+Colar receita no prontuário do paciente; 
+Fazer download da receita;
+Colocar na pasta compartilhada; 
+Adicionar na pasta de marcação; 
+Adicionar na pasta do Dr.Renan e Dra.Marisa. 
+2.2 Validar receita médica. 
+Fazer a assinatura digital, assegurando a autenticidade e a integridade da receita médica. 
+3.0 Imprimir receita médica. 
+
+FIM DO PROCESSO
+
+
+5
+Procedimento Operacional Padrão
+N.º 4
+V. 1
+Data
+07/02/2025
+Tarefa
+Marcação de exames
+Responsável 
+Atendentes
+Objetivo
+Garantir o agendamento preciso e eficiente de exames médicos.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Livro de registros
+Ações (1/2)
+Aguardar o paciente realizar a consulta na clínica.
+1.0 Pesquisar paciente na Medware.
+Clicar em agenda do médico.
+Clicar no nome do paciente.
+Salvar nome do paciente.
+Clicar em adicionar.
+Selecionar agenda do exame.
+Verificar horários disponíveis.
+Clicar em salvar.
+Verificar dados do paciente.
+Verificar histórico do paciente.
+Verificar o médico.
+Verificar o convênio.
+Selecionar exames solicitados.
+Verificar datas próximas que podem ser feitas no mesmo dia.
+Informar ao paciente o dia e horário.
+Convênio cobre o exame?
+SIM
+2.0 Adicionar no livro exames, datas e orientações.
+Entregar livro ao paciente.
+
+FIM DO PROCESSO
+
+
+6
+Procedimento Operacional Padrão
+N.º 4
+V. 1
+Data
+07/02/2025
+Tarefa
+Marcação de exames
+Responsável 
+Atendentes
+Objetivo
+Garantir o agendamento preciso e eficiente de exames médicos.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Livro de registros
+Ações (2/2)
+
+Convênio cobre o exame?
+NÃO
+3.0 Informar o valor do exame.
+Cliente aceita fazer o pagamento?
+NÃO
+4.0 Emitir o pedido para ser feito em outro local.
+
+FIM DO PROCESSO
+
+Cliente aceita fazer o pagamento?
+SIM
+5.0 Emitir receituário com o pedido.
+
+FIM DO PROCESSO
+
+
+
+
+
+7
+Procedimento Operacional Padrão
+N.º 5
+V. 1
+Data
+07/02/2025
+Tarefa
+Emissão de relatório médico. 
+Responsável 
+Atendentes
+Objetivo
+Elaborar e emitir um relatório médico completo e preciso.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Carimbo da clínica/médico.
+Ações (1/2)
+Responsável: Atendentes
+
+1.0 Acessar prontuário do paciente. 
+Acessar o software Medware;
+O atendente deverá solicitar os dados pessoais do paciente, como nome completo e data de nascimento;
+2.0 Fazer a verificação de dados. 
+Analisar os medicamentos que o paciente está utilizando; 
+Revisar o histórico médico do paciente, incluindo sintomas, diagnósticos anteriores e tratamentos realizados.
+3.0 Iniciar revisão e aprovação  do relatório. 
+Fazer a impressão do documento; 
+Entregar o documento de forma física ao Dr.Renan para revisão e aprovação. 
+
+Responsável: Dr. Renan
+
+4.0 Revisar e aprovar relatório médico. 
+Revisa o relatório e o histórico do paciente para garantir que todas as informações estão corretas e completas; 
+Entregar o relatório para as atendentes. 
+
+Responsável: Atendentes
+
+5.0 Verificar a necessidade de alteração.
+Necessita alguma alteração?
+SIM
+
+
+
+8
+Procedimento Operacional Padrão
+N.º 5
+V. 1
+Data
+07/02/2025
+Tarefa
+Emissão de relatório médico. 
+Responsável 
+Atendentes
+Objetivo
+Elaborar e emitir um relatório médico completo e preciso.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Carimbo da clínica/médico.
+Ações (2/2)
+5.1 Redigir o relatório. 
+5.2 Ir para atividade 3.0
+Necessita alguma alteração?
+NÃO
+6.0 Ir para atividade 7.0
+7.0 Emitir relatório médico. 
+Fazer a impressão do relatório; 
+Entregar relatório impresso ao Dr.Renan. 
+
+Responsável: Dr. Renan
+
+7.1 Carimbar o relatório médico. 
+Entregar relatório para atendentes. 
+
+Responsável: Atendentes
+
+8.0 Fazer a entrega do relatório ao paciente. 
+Entregar ao paciente relatório impresso e carimbado pelo médico. 
+
+FIM DO PROCESSO
+

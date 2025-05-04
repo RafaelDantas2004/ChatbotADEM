@@ -1,0 +1,166 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+XX/XX/2025
+Tarefa
+Recepção de paciente convênio.
+Responsável 
+Recepcionistas
+Objetivo
+Garantir um atendimento organizado e eficiente na clínica.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Lista de códigos de procedimento AMP
+Ações
+1.0 Fazer a recepção do paciente. 
+O paciente recebe uma senha para organizar o fluxo de atendimento;
+O paciente se dirige ao balcão de atendimento;
+O paciente é brasileiro? 
+NÃO
+2.0 Encaminhar para o processo de recepção de paciente particular. 
+O paciente é brasileiro? 
+SIM
+3.0 Verificar dados do paciente. 
+O atendente deverá solicitar os dados pessoais do paciente, como Nome, CPF, RG, Data de Nascimento;
+Pesquisar dados do paciente no software Medware; 
+Verificar se os dados do paciente estão corretos no sistema. 
+4.0 Fazer a verificação do procedimento
+O atendente deverá verificar se será consulta ou exame, e quais seus respectivos procedimentos. 
+5.0 Gerar a ficha do procedimento com os dados do paciente.
+Acessar pasta compartilhada
+Imprimir ficha do procedimento
+Entregar ao paciente
+
+FIM DO PROCESSO
+
+
+
+3'
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+XX/XX/2025
+Tarefa
+Recepção de paciente particular. 
+Responsável 
+Recepcionistas
+Objetivo
+Garantir um atendimento organizado e eficiente na clínica.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Conhecimento do site da Receita Federal
+Caderno de registro de pagamentos.
+Ações (1/3)
+
+1.0 Fazer a recepção do paciente. 
+O paciente recebe uma senha para organizar o fluxo de atendimento;
+O paciente se dirige ao balcão de atendimento;
+O paciente é brasileiro? 
+NÃO
+2.0 Solicitar documentos registro nacional.
+O paciente é brasileiro? 
+SIM
+3.0 Solicitar documentos pessoais do paciente. 
+O atendente deverá solicitar os dados pessoais do paciente, como RG ou CNH. 
+4.0 Verificar dados do paciente. 
+Pesquisar dados do paciente no software Medware; 
+Verificar se os dados do paciente estão corretos no sistema. 
+5.0 Fazer a verificação do procedimento
+O atendente deverá verificar se será consulta ou exame, e quais seus respectivos procedimentos. 
+Verificar o valor procedimento; 
+Verificar se há a possibilidade de desconto; 
+6.0 Informar ao paciente o valor do procedimento.
+O paciente aceita o valor do procedimento? 
+NÃO
+
+FIM DO PROCESSO
+
+
+
+
+4
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+XX/XX/2025
+Tarefa
+Recepção de paciente particular. 
+Responsável 
+Recepcionistas
+Objetivo
+Garantir um atendimento organizado e eficiente na clínica.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Conhecimento do site da Receita Federal
+Caderno de registro de pagamentos.
+Ações (2/3)
+
+O paciente aceita o valor do procedimento? 
+SIM
+7.0 Realizar gestão de pagamento. 
+Receber o pagamento, onde o paciente realiza o pagamento no momento do atendimento;
+Registrar o nome do paciente, data e valor no caderno de pagamentos.
+8.0 Gerar a ficha do procedimento com os dados do paciente.
+O atendente irá efetuar a liberação da ficha do procedimento; 
+Imprimir a ficha do procedimento.
+9.0 Realizar a emissão da Nota Fiscal. 
+O atendente deverá acessar o site da Receita; 
+Buscar o CPF do paciente no sistema;
+Adicionar o procedimento no campo de descrição da nota;
+Incluir o valor e emitir a nota fiscal;
+O paciente aceita receber a nota fiscal pelo e-mail? 
+NÃO
+10.0 Encaminhar pelo Whatsapp 
+Fazer o download da nota fiscal; 
+Salvar em pasta compartilhada; 
+Acessar o Whatsapp; 
+Salvar o contato do paciente; 
+Encaminhar nota fiscal do paciente pelo whatsapp
+O paciente aceita receber a nota fiscal pelo e-mail? 
+SIM
+
+5
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+XX/XX/2025
+Tarefa
+Recepção de paciente particular. 
+Responsável 
+Recepcionistas
+Objetivo
+Garantir um atendimento organizado e eficiente na clínica.
+Recursos Necessários
+Conhecimento do software Medware
+Impressora
+Conhecimento do site da Receita Federal
+Caderno de registro de pagamento.
+Ações (3/3)
+
+11.0 Encaminhar nota fiscal pelo site da Receita Federal. 
+12.0 Encaminhar o paciente para o procedimento.
+O pagamento foi feito em dinheiro? 
+SIM
+13.0 Repassar o dinheiro para as Gerentes Gerais.  
+O pagamento foi feito em dinheiro? 
+NÃO
+
+FIM DO PROCESSO
+

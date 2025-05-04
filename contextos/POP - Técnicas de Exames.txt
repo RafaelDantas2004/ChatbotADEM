@@ -1,0 +1,309 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Aparelhos
+Responsável 
+Técnicas de exames
+Objetivo
+Realizar todos os procedimentos de maneira correta
+Recursos Necessários
+Mapa;
+Holter;
+Polissonografia;
+Urofluxometria;
+Volp;
+Funcionários;
+Sistema.
+Ações (1/4)
+1.0 Verificar na agenda.
+Cinco aparelhos diferentes.
+2.0 Verificar aparelho que vai ser usado;
+Verificar paciente;
+Recepcionar paciente;
+Preparar aparelho;
+Registrar paciente.
+Qual aparelho?
+MAPA
+3.0 Higienizar aparelho.
+3.1 Medir pressão.
+3.2 Conectar no sistema.
+Fazer leitura;
+Laudar.
+FIM DO PROCESSO
+Qual aparelho?
+HOLTER
+4.0 Realizar pela manhã.
+Informar para paciente trazer o cinto.
+Higienizar o aparelho;
+Botar aparelho no paciente;
+Retirar do paciente no dia seguinte;
+Fazer leitura;
+Conectar cabo no aparelho;
+
+
+3
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Aparelhos
+Responsável 
+Técnicas de exames
+Objetivo
+Realizar todos os procedimentos de maneira correta
+Recursos Necessários
+Mapa;
+Holter;
+Polissonografia;
+Urofluxometria;
+Volp;
+Funcionários;
+Sistema.
+Ações (2/4)
+Conectar cabo no computador;
+Clicar em “apagar” no aparelho;
+Descarregar no sistema
+Fazer a higienização interna;
+Fazer higienização externa para por em outro paciente;
+Registrar dados;
+Laudar
+
+FIM DO PROCESSO
+
+Qual aparelho?
+POLISSONOGRAFIA
+5.0 Higienizar aparelho.
+5.1 Colocar aparelho no corpo do paciente.
+Colocar a cinta no paciente;
+Por relógio no paciente;
+Adicionar um oxímetro;
+Entregar cânula;
+Direcionar a por a cânula no nariz e ligar o aparelho antes de dormir;
+5.2 Fazer a leitura.
+Conectar cabo no aparelho;
+Conectar cabo no computador;
+Clicar em “apagar” no aparelho;
+
+4
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Aparelhos
+Responsável 
+Técnicas de exames
+Objetivo
+Realizar todos os procedimentos de maneira correta
+Recursos Necessários
+Mapa;
+Holter;
+Polissonografia;
+Urofluxometria;
+Volp;
+Funcionários;
+Sistema.
+Ações (3/4)
+Descarregar no sistema
+Fazer a higienização interna;
+Fazer higienização externa para por em outro paciente;
+Registrar dados;
+Laudar
+
+FIM DO PROCESSO
+
+Qual aparelho?
+UROFLUXOMETRIA
+6.0 Solicitar ao paciente beber 4 a 6 copos de água.
+6.1 Encaminha paciente para o banheiro.
+Paciente urina no banheiro;
+Conferir se o paciente fez certo.
+6.2 Verificar no sistema os dados coletados.
+6.3 Descartar os materiais utilizados.
+Fazer higienização dos aparelhos.
+6. 4 Fazer leitura.
+Conectar no sistema;
+Laudar.
+
+FIM DO PROCESSO
+
+Qual aparelho?
+
+
+5
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Aparelhos
+Responsável 
+Técnicas de exames
+Objetivo
+Realizar todos os procedimentos de maneira correta
+Recursos Necessários
+Mapa;
+Holter;
+Polissonografia;
+Urofluxometria;
+Volp;
+Funcionários;
+Sistema.
+Ações (4/4)
+VOLP
+7.0 Higienizar aparelho.
+7.1 Verificar a idade das artérias do paciente; 
+7.2 Solicitar ao paciente a ficar sentado na poltrona.
+7.3 Colocar medidor de pressão no braço.
+Conectar via bluetooth na cardio;
+Inicia a medida do paciente;
+Fazer leitura;
+Conectar no sistema;
+Laudar
+
+FIM DO PROCESSO
+
+
+6
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+07/02/2025
+Tarefa
+Ecocardio
+Responsável 
+Técnicas de exames
+Objetivo
+Preparar o exame de acordo com as especificidades de cada médico
+Recursos Necessários
+Agenda;
+Funcionários;
+Aparelho.
+Ações (1/1)
+1.0 Preparar exame.
+Verificar exame na agenda;
+Verificar qual médico vai realizar o exame;
+Cinco médicos realizar o ecocardio (Renan, Matheus, Gabriel, Eduardo e Bruno).
+Preparar sala para exame;
+Cada médico pede de um jeito específico.
+Chamar médico e paciente para exame;
+Ligar o aparelho;
+Botar informações do paciente;
+Nome, sobrenome, sexo, data de nascimento, peso e altura.
+Botar o paciente na cama para o exame;
+Realizar exame;
+Seguir especificações do médico.
+Finalizar o exame;
+Fazer laudo do exame.
+Tem médico que faz.
+
+FIM DO PROCESSO
+
+7
+Procedimento Operacional Padrão
+N.º 3
+V. 1
+Data
+07/02/2025
+Tarefa
+Ergometria
+Responsável 
+Técnicas de exames e recepção
+Objetivo
+Realizar o exame definido de maneira correta
+Recursos Necessários
+Funcionários;
+Sistema elite;
+Aparelhos.
+Ações (1/2)
+1.0 Verificar agenda.
+Verificar qual exame será feito;
+Verificar paciente;
+Verificar médico;
+1.1 Recepcionar paciente
+2.0 Preparar exame.
+Registrar paciente;
+Cadastrar paciente na esteira;
+Cadastrar paciente no sistema;
+Utilizar sistema ELITE para todos.
+Higienizar esteira e equipamentos;
+Explicar procedimento para paciente.
+
+Qual procedimento?
+CÁRDIO PULMONAR
+3.0 Passar álcool.
+Se tiver pelo no peito raspar.
+3.1 Botar eletrodos.
+Cada fio no local correto.
+3.2 Solicitar paciente a subir na esteira.
+Colocar manguito no paciente para verificar pressão;
+3.3 Colocar máscara V2;
+Tampar o nariz;
+Higienizar a máscara;
+3.4 Verificar a pressão;
+Passar para o sistema;
+Laudar.
+
+8
+Procedimento Operacional Padrão
+N.º 3
+V. 1
+Data
+07/02/2025
+Tarefa
+Ergometria
+Responsável 
+Técnicas de exames e recepção
+Objetivo
+Realizar o exame definido de maneira correta
+Recursos Necessários
+Funcionários;
+Sistema elite;
+Aparelhos.
+Ações (2/2)
+FIM DO PROCESSO
+
+Qual procedimento?
+CARDIOVASCULAR
+4.0 Passar álcool.
+Se tiver pelo no peito raspar.
+4.1 Botar eletrodos.
+Cada fio no local correto.
+4.2 Solicitar paciente a subir na esteira.
+Colocar manguito no paciente para verificar pressão;
+4.3 Chamar médico após 5 minutos de esteira.
+Verificar a pressão;
+Passar para o sistema;
+Laudar.
+
+FIM DO PROCESSO
+
+Qual procedimento?
+ECO DE ESFORÇO
+5.0 Solicitar para paciente deitar.
+5.1 Fazer eco.
+Solicitar ao paciente caminha na esteira;
+Pedir para paciente sair da esteira.
+5.2 Fazer eco novamente.
+Passar para o sistema;
+Laudar.
+
+FIM DO PROCESSO

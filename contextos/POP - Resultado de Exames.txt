@@ -1,0 +1,132 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+02/07/2025
+Tarefa
+Preparação para o dia seguinte
+Responsável 
+Resultado de exames
+Objetivo
+Recursos Necessários
+Funcionários;
+Medware;
+Pasta.
+Ações (1/1)
+1.0 Abrir a planilha da escala da semana.
+Verificar exames do dia seguinte.
+O exame é físico ou digital?
+FÍSICO
+2.0 Adicionar na pasta de exames físicos.
+ Deixar na recepção;
+Separar por médico e paciente.
+
+FIM DE PROCESSO
+
+O exame é físico ou digital?
+DIGITAL
+3.0 Abrir sistema do Medware.
+Acessar agenda do médico responsável;
+Selecionar exame;
+Abrir pasta compartilhada;
+Salvar na pasta do médico responsável.
+
+FIM DO PROCESSO
+
+3
+Procedimento Operacional Padrão
+N.º 1
+V. 2
+Data
+02/07/2025
+Tarefa
+Solicitação de paciente remoto
+Responsável 
+Resultado de exames
+Objetivo
+Encaminhar adequadamente o exame para o paciente
+Recursos Necessários
+Funcionários;
+Planilhas;
+Medware.
+Ações (1/1)
+1.0 Receber paciente.
+Perguntar exame que o paciente deseja.
+O exame está na pasta compartilhada ou na Medware?
+PASTA COMPARTILHADA
+2.0 Pesquisar nome do paciente.
+Fazer upload do exame no site da assinatura digital;
+Assinar exame no site da assinatura digital;
+Fazer download do exame assinado.
+Continuar em 4.0
+O exame está na pasta compartilhada ou na Medware?
+MEDWARE
+3.0 Clicar em ficha de paciente.
+Pesquisar paciente na medware;
+Nome, CPF, RG e data de nascimento.
+Clicar em confirmar nome do paciente;
+Clicar em histórico;
+Selecionar exame solicitado;
+Fazer upload do exame no site assinatura digital;
+Assinar exame no site assinatura digital;
+Fazer download do exame assinado.
+4.0 Encaminhar exame para o paciente.
+IMPRIMIR o exame do paciente;
+ENTREGAR o exame do paciente.
+
+FIM DO PROCESSO
+
+4
+Procedimento Operacional Padrão
+N.º 1
+V. 3
+Data
+02/07/2025
+Tarefa
+Solicitação de paciente presencial
+Responsável 
+Resultado de exames
+Objetivo
+Entregar adequadamente o exame para o paciente
+Recursos Necessários
+Funcionários;
+Medware
+Planilhas.
+Ações (1/1)
+1.0 Receber paciente.
+Perguntar exame que o paciente deseja.
+O exame está na pasta compartilhada ou na Medware?
+PASTA COMPARTILHADA
+2.0 Pesquisar nome do paciente.
+Fazer upload do exame no site da assinatura digital;
+Assinar exame no site da assinatura digital;
+Fazer download do exame assinado.
+
+Continuar em 4.0
+O exame está na pasta compartilhada ou na Medware?
+MEDWARE
+3.0 Clicar em ficha de paciente.
+Pesquisar paciente na medware;
+Nome, CPF, RG e data de nascimento.
+Clicar em confirmar nome do paciente;
+Clicar em histórico;
+Selecionar exame solicitado;
+Fazer upload do exame no site assinatura digital;
+Assinar exame no site assinatura digital;
+Fazer download do exame assinado.
+4.0 Imprimir exame do paciente.
+5.0 Entregar exame do paciente.
+
+FIM DO PROCESSO
+
+ 

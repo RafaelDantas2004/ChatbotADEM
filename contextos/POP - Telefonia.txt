@@ -1,0 +1,261 @@
+POP
+CLINIC
+Consultores:
+Isaias Silva
+Pedro Faria
+
+Gerente:
+Carolina Braga
+
+2
+Procedimento Operacional Padrão
+N.º 1
+V. 1
+Data
+07/02/2025
+Tarefa
+Resultados de Exames Imediatos
+Responsável 
+Atendentes
+Objetivo
+Garantir que os resultados de exames sejam entregues aos pacientes de forma rápida e precisa
+Recursos Necessários
+Conhecimento do software Medware
+Ações (1/1)
+1.0 Receber o paciente.
+O paciente chega à clínica para receber o resultado do exame
+O resultado de exames é disponibilizado na hora? .
+Não
+2.0 Informar ao paciente para retornar de cinco a 7 dias para receber o exame. 
+O resultado de exames é disponibilizado na hora? .
+Sim
+3.0 Fazer a verificação da disponibilidade do resultado de exame.
+Ir até a sala de resultados de exames;
+Coletar o nome e data de nascimento do paciente, para garantir que o resultado correto será entregue;
+Verificar se o médico já adicionou o resultado ao prontuário do paciente.
+4.0 Entregar o resultado do exame ao paciente
+O resultado pode ser entregue de duas formas:
+Impressão: Imprimir o resultado e entregar fisicamente ao paciente.
+Envio online: Enviar o resultado por e-mail ou outro meio digital, conforme a preferência do paciente.
+5.0 Dar baixa no sistema da medware.
+
+FIM DO PROCESSO
+
+
+3
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+07/02/2025
+Tarefa
+Resultados de Exames a prazo
+Responsável 
+Atendentes
+Objetivo
+Garantir que os resultados de exames sejam entregues aos pacientes dentro do prazo de 5 a 7 dias
+Recursos Necessários
+Conhecimento do software Medware
+Impressora 
+Pastas Físicas
+Ações (1/2)
+1.0 Aguardar de 5 a 7 dias.
+O paciente é informado que o resultado do exame estará disponível dentro desse prazo.
+
+2.0 Receber o resultado de exame do médico. 
+O médico disponibiliza o resultado do exame no sistema ou em formato físico.
+3.0 Fazer a verificação de resultados de exames. 
+Aguardar um dia antes do prazo de espera do paciente;
+Verificar se os resultados estão disponíveis um dia antes do prazo informado ao paciente;
+Verificar se os resultados estão prontos para entrega.
+O exame é físico ou digital? 
+Físico
+4.0 Fazer a gestão de exames físicos.
+Reunir todos os exames físicos do paciente;
+ Adicionar os exames na pasta física do paciente;
+Organizar as pastas em ordem alfabética para facilitar a localização.
+O exame é físico ou digital? 
+Digital
+5.0 Fazer a gestão de exames físicos. 
+Assinar digitalmente os resultados dos exames;
+Adicionar os resultados na pasta compartilhada do sistema.
+6.0 Receber o paciente. 
+
+
+4
+Procedimento Operacional Padrão
+N.º 2
+V. 1
+Data
+07/02/2025
+Tarefa
+Resultados de Exames a prazo
+Responsável 
+Atendentes
+Objetivo
+Garantir que os resultados de exames sejam entregues aos pacientes dentro do prazo de 5 a 7 dias
+Recursos Necessários
+Conhecimento do software Medware
+Impressora 
+Pastas Físicas
+Ações (2/2)
+O exame solicitado é físico ou digital? 
+Físico
+7.0 Pegar o resultado de exame na pasta física. 
+Localizar o resultado na pasta física do paciente.
+8.0 Entregar para o paciente o resultado de exame. 
+9.0 Dar baixa no sistema
+Registrar no sistema que o resultado foi entregue.
+
+FIM DO PROCESSO
+
+O exame solicitado é físico ou digital? 
+Digital
+10. Enviar o resultado para o paciente.
+11.0 Dar baixa no sistema
+Registrar no sistema que o resultado foi entregue.
+
+FIM DO PROCESSO
+
+
+5
+Procedimento Operacional Padrão
+N.º 3
+V. 1
+Data
+07/02/2025
+Tarefa
+Marcação de Exames
+Responsável 
+Atendentes
+Objetivo
+Garantir o agendamento preciso e eficiente de exames médicos.
+Recursos Necessários
+Conhecimento do software Medware
+Telefone
+Conhecimento de atendimento no Whatsapp
+Ações (1/2)
+1.0 Pesquisar paciente no Medware.
+Localizar o paciente no sistema usando nome, CPF, RG ou data de nascimento.
+2.0 Verificar horários disponíveis.
+Clicar em “agenda” do médico que solicitou o exame;
+Clicar no “nome do paciente”;
+“Salvar” nome do paciente;
+Clicar em “adicionar”
+Selecionar agenda do exame
+Verificar horários disponíveis para o exame.
+Clicar em “salvar”
+3.0 Realizar verificações básicas. 
+Confirmar se as informações do paciente estão corretas;
+Verificar o histórico médico para garantir que o exame solicitado está de acordo com as necessidades do paciente;
+Confirmar o médico solicitante;
+Confirmar o convênio do paciente; 
+Selecionar exames que foram solicitados pelo médico.
+4.0 Realizar otimização de datas e horários.
+Verificar datas próximas que podem ser feitas no mesmo dia;
+Tentar agendar exames complementares no mesmo dia, se possível.
+5.0 Informar ao paciente dia e horário do exame.
+Esperar até um dia antes do exame para entrar em contato com o paciente.
+6.0 Entrar em contato com o paciente.
+Ligar ou enviar uma mensagem para confirmar a presença do paciente.
+
+6
+Procedimento Operacional Padrão
+N.º 3
+V. 1
+Data
+07/02/2025
+Tarefa
+Marcação de Exames
+Responsável 
+Atendentes
+Objetivo
+Garantir o agendamento preciso e eficiente de exames médicos.
+Recursos Necessários
+Conhecimento do software Medware
+Telefone
+Conhecimento de atendimento no Whatsapp
+Ações (2/2)
+Paciente confirmou presença no exame?
+Não
+7.0 Verificar datas de interesse do paciente. 
+8.0 Ir para atividade 4.0. 
+Paciente confirmou presença no exame?
+Sim
+9.0 Confirmar informações do exame com o paciente.
+Reforçar a data, horário e local do exame.
+
+FIM DO PROCESSO
+
+
+7
+Procedimento Operacional Padrão
+N.º 4
+V. 1
+Data
+07/02/2025
+Tarefa
+Marcação de Consultas Médicas 
+Responsável 
+Atendentes
+Objetivo
+Garantir o agendamento preciso e eficiente de consultas médicas
+Recursos Necessários
+Conhecimento do software Medware
+Telefone
+Conhecimento de atendimento no Whatsapp
+Ações (1/2)
+1.0 Receber mensagem do paciente. 
+O paciente entra em contato via WhatsApp ou telefone para marcar uma consulta.
+2.0 Verificar horários disponíveis.
+O atendente deverá acessar o software da Medware e verificar a disponibilidade do médico especialista e do horário solicitado;
+Consultar os horários livres na agenda do médico.
+3.0 Realizar a marcação da consulta.
+Selecionar o dia e horário disponíveis no sistema.
+Coletar informações do paciente
+Registrar nome completo, data de nascimento, telefone, convênio, plano do convênio e o procedimento solicitado.
+Marcar a consulta no sistema.
+4.0 Realizar a confirmação da consulta. 
+Esperar chegar um dia antes da consulta
+Enviar uma mensagem via WhatsApp ou ligar para confirmar a presença do paciente.
+Paciente confirmou?
+Informou que não consegue ir pra consulta. 
+5.0 Tentar reagendar o paciente. 
+Oferecer novas datas e horários.
+Conseguiu reagendar?
+Sim 
+6.0 Retornar para atividade 3.0.  
+
+8
+Procedimento Operacional Padrão
+N.º 4
+V. 1
+Data
+07/02/2025
+Tarefa
+Marcação de Consultas Médicas 
+Responsável 
+Atendentes
+Objetivo
+Garantir o agendamento preciso e eficiente de consultas médicas
+Recursos Necessários
+Conhecimento do software Medware
+Telefone
+Conhecimento de atendimento no Whatsapp
+Ações (2/2)
+Conseguiu reagendar?
+Não
+7.0 Dar paciente como falta no sistema. 
+
+FIM DO PROCESSO
+
+Paciente confirmou?
+Não houve retorno do paciente
+8.0 Manter a consulta na agenda e aguardar a presença do paciente.
+Paciente tem até quinze minutos de atraso para chegar, depois disso é considerado falta. 
+Paciente confirmou?
+Sim
+9.0 Encerrar atendimento. 
+
+FIM DO PROCESSO
+
