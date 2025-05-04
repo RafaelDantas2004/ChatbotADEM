@@ -201,7 +201,7 @@ Abaixo estão trechos relevantes para sua análise:
             resposta = openai.ChatCompletion.create(
                 model="gpt-4o",
                 messages=mensagens,
-                temperature=0.5,
+                temperature=0.7,
                 max_tokens=800
             )
             return resposta["choices"][0]["message"]["content"]
