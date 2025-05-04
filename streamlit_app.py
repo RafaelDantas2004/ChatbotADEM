@@ -4,6 +4,9 @@ import os
 from PIL import Image
 import time
 import json
+import hashlib
+import io
+import base64
 import streamlit.components.v1 as components
 import speech_recognition as sr
 
@@ -13,89 +16,6 @@ st.set_page_config(
     page_icon="💙",
     layout="wide",
 )
-
-# CSS personalizado para estilizar a interface
-theme_css = """
-<style>
-/* Esconde elementos indesejados */
-._link_gzau3_10, ._profileContainer_gzau3_53,
-footer, iframe[title="streamlit branding"],
-[data-testid="stToolbar"], div[data-testid="stActionButtonIcon"],
-div[style*="position: fixed"][style*="right: 0px"][style*="bottom: 0px"] {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-/* Ajuste de estilos */
-header {visibility: hidden;}
-.block-container {padding-top: 1rem;}
-
-/* Sidebar */
-.stSidebar .stMarkdown, .stSidebar label,
-.stSidebar .stTextInput, .stSidebar .stTextArea,
-.stSidebar .stButton, .stSidebar .stExpander {
-    color: white !important;
-}
-
-/* Principal */
-.stMarkdown, .stTextInput, .stTextArea,
-.stButton, .stExpander {
-    color: black !important;
-}
-
-/* Uploader */
-.stFileUploader > div > div {
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-.stFileUploader label {
-    color: black !important;
-}
-.stFileUploader button {
-    background-color: #8dc50b;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    padding: 8px 16px;
-}
-
-/* Notificações */
-div[data-testid="stNotification"] > div > div {
-    background-color: white !important;
-    color: black !important;
-    border-radius: 10px !important;
-    padding: 10px !important;
-    border: 1px solid #ccc !important;
-}
-div[data-testid="stNotification"] > div > div > div:first-child {
-    color: #8dc50b !important;
-}
-
-/* Subtítulo */
-.subtitulo {
-    font-size: 16px !important;
-    color: black !important;
-}
-
-/* Chat input */
-.stChatInput input, .stChatInput textarea {
-    color: white !important;
-}
-.stChatInput input::placeholder, .stChatInput textarea::placeholder {
-    color: white !important;
-    opacity: 1;
-}
-
-/* Logo */
-.stImage > img {
-    filter: drop-shadow(0 0 0 #8dc50b);
-}
-</style>
-"""
-st.markdown(theme_css, unsafe_allow_html=True)
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -118,23 +38,31 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Estado
 if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
+if "perguntas_respondidas" not in st.session_state:
+    st.session_state.perguntas_respondidas = set()
+
+MAX_HISTORICO = 5  # número máximo de interações a serem consideradas no prompt
 
 def salvar_estado():
     with open("estado_bot.json", "w") as f:
-        json.dump({"mensagens_chat": st.session_state.mensagens_chat}, f)
+        json.dump({
+            "mensagens_chat": st.session_state.mensagens_chat,
+            "perguntas_respondidas": list(st.session_state.perguntas_respondidas)
+        }, f)
 
 def carregar_estado():
     if os.path.exists("estado_bot.json"):
         with open("estado_bot.json", "r") as f:
             estado = json.load(f)
             st.session_state.mensagens_chat = estado.get("mensagens_chat", [])
+            st.session_state.perguntas_respondidas = set(estado.get("perguntas_respondidas", []))
 carregar_estado()
 
 def limpar_historico():
     st.session_state.mensagens_chat = []
+    st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
 def carregar_contexto():
@@ -144,8 +72,6 @@ def carregar_contexto():
         if os.path.exists(arquivo):
             with open(arquivo, "r", encoding="utf-8") as f:
                 contexto += f.read() + "\n\n"
-        else:
-            st.error(f"Arquivo de contexto não encontrado: {arquivo}")
     return contexto
 
 contexto = carregar_contexto()
@@ -171,20 +97,21 @@ def gerar_resposta(texto_usuario):
     if not contexto:
         return "Erro: Nenhum contexto carregado."
 
+    pergunta_hash = hashlib.sha256(texto_usuario.strip().lower().encode()).hexdigest()
+    if pergunta_hash in st.session_state.perguntas_respondidas:
+        return "Essa pergunta já foi respondida anteriormente. Deseja que eu a aprofunde ou traga uma perspectiva diferente?"
+
     chunks = dividir_texto(contexto)
     chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)
 
     contexto_pergunta = """
 Você é a AD&M IA, uma inteligência artificial treinada com base nos projetos, documentos e metodologias utilizadas pela AD&M Consultoria Empresarial. Seu papel é:
-
 1. Fornecer respostas claras, educadas e baseadas em dados reais;
 2. Gerar insights estratégicos e práticos que o cliente possa aplicar imediatamente;
 3. Sempre responder com objetividade, linguagem simples e foco em Administração, Gestão de Processos, Planejamento Estratégico e Soluções Empresariais;
 4. Se basear no conteúdo a seguir (trechos de projetos anteriores) para responder a pergunta;
 5. Caso não encontre resposta no contexto, responda com sugestões realistas baseadas em boas práticas de consultoria júnior.
-
 Mantenha sempre um tom profissional e propositivo.
-
 Abaixo estão trechos relevantes para sua análise:
 """
     for i, chunk in enumerate(chunks_relevantes):
@@ -192,7 +119,8 @@ Abaixo estão trechos relevantes para sua análise:
 
     mensagens = [{"role": "system", "content": contexto_pergunta}]
 
-    for msg in st.session_state.mensagens_chat:
+    historico = st.session_state.mensagens_chat[-MAX_HISTORICO:]
+    for msg in historico:
         mensagens.append({"role": "user", "content": msg["user"]})
         if msg["bot"]:
             mensagens.append({"role": "assistant", "content": msg["bot"]})
@@ -208,6 +136,7 @@ Abaixo estão trechos relevantes para sua análise:
                 temperature=0.5,
                 max_tokens=800
             )
+            st.session_state.perguntas_respondidas.add(pergunta_hash)
             return resposta["choices"][0]["message"]["content"]
         except Exception as e:
             if tentativa < 2:
@@ -216,7 +145,12 @@ Abaixo estão trechos relevantes para sua análise:
             else:
                 return f"Erro ao gerar a resposta: {str(e)}"
 
-# Sidebar
+def exportar_historico():
+    texto = ""
+    for m in st.session_state.mensagens_chat:
+        texto += f"Você: {m['user']}\nAD&M IA: {m['bot']}\n\n"
+    return texto
+
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
 else:
@@ -228,6 +162,11 @@ if api_key:
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
+    if st.sidebar.button("📄 Exportar Histórico", key="exportar_txt"):
+        historico = exportar_historico()
+        b64 = base64.b64encode(historico.encode()).decode()
+        href = f'<a href="data:file/txt;base64,{b64}" download="historico_chat_adm.txt">Clique aqui para baixar o histórico (.txt)</a>'
+        st.sidebar.markdown(href, unsafe_allow_html=True)
 else:
     st.warning("Por favor, insira sua chave de API para continuar.")
 
