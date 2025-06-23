@@ -15,32 +15,6 @@ st.set_page_config(
     layout="wide",
 )
 
-
-# Ocultar barra superior do Streamlit (Share, GitHub, etc.)
-st.markdown("""
-    <style>
-    [data-testid="stToolbar"] {
-        visibility: hidden !important;
-        display: none !important;
-    }
-
-
-    header.st-emotion-cache-18ni7ap {
-        display: none !important;
-    }
-
-
-    .stActionButtonIcon {
-        display: none !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-
-
-
-
-
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
 ICON_PATH = "assets/icon_cade.png"
