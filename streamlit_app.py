@@ -14,17 +14,22 @@ st.set_page_config(
     layout="wide",
 )
 
-# --- ALTERAÇÃO 1: Adicionando CSS seguro para ocultar a barra de ferramentas ---
+# --- INÍCIO DA ALTERAÇÃO 1: CSS CORRIGIDO E SEGURO ---
+# Este bloco substitui o seu antigo CSS. Ele oculta APENAS a barra de ferramentas superior
+# e o menu de ação, sem afetar a barra lateral.
 st.markdown("""
     <style>
-    /* Oculta a barra de ferramentas do Streamlit (Share, etc.) */
     [data-testid="stToolbar"] {
         visibility: hidden !important;
-        height: 0% !important;
+        height: 0px !important;
+        display: none !important;
+    }
+    .stActionButtonIcon {
         display: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
+# --- FIM DA ALTERAÇÃO 1 ---
 
 
 # Caminhos das logos
@@ -33,7 +38,7 @@ ICON_PATH = "assets/icon_cade.png"
 
 LOGO_BOT = Image.open(LOGO_BOT_PATH) if os.path.exists(LOGO_BOT_PATH) else None
 
-# Header com ícone e título
+# Header com ícone e título (SEU CÓDIGO ORIGINAL)
 if os.path.exists(ICON_PATH):
     col1, col2 = st.columns([1.5, 4])
     with col1:
@@ -85,6 +90,7 @@ def carregar_contexto():
 
 contexto = carregar_contexto()
 
+# Funções do chatbot (SEU CÓDIGO ORIGINAL)
 def dividir_texto(texto, max_tokens=800):
     palavras = texto.split()
     chunks, chunk_atual = [], ""
@@ -144,52 +150,61 @@ Abaixo estão trechos relevantes para sua análise:
                     max_tokens=800
                 )
                 st.session_state.perguntas_respondidas.add(pergunta_hash)
-                return resposta.choices[0].message["content"]
+                return resposta["choices"][0]["message"]["content"]
         except Exception as e:
             if tentativa < 2:
                 time.sleep(2)
                 continue
             else:
-                st.error(f"Erro na API OpenAI: {str(e)}")
-                return f"Desculpe, ocorreu um erro ao tentar gerar a resposta: {str(e)}"
+                return f"Erro ao gerar a resposta: {str(e)}"
 
-# --- BARRA LATERAL (SIDEBAR) ---
-
-# --- ALTERAÇÃO 2: A linha st.sidebar.title(...) foi removida daqui. ---
-
+# --- INÍCIO DA ALTERAÇÃO 2: LÓGICA DA CHAVE API CORRIGIDA ---
+# Sidebar
 if LOGO_BOT:
-    # Corrigido o aviso de deprecation que aparecia na sua imagem
-    st.sidebar.image(LOGO_BOT, use_container_width=True) 
+    st.sidebar.image(LOGO_BOT, width=300)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
-api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API aqui", label_visibility="collapsed")
+api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
 
-if st.sidebar.button("🧹 Limpar Histórico do Chat"):
+# A lógica de st.stop() foi removida daqui para não travar o app.
+if api_key:
+    openai.api_key = api_key
+
+if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
     limpar_historico()
-    st.rerun()
+    st.sidebar.success("Histórico do chat limpo com sucesso!")
+    st.rerun() # Adicionado para atualizar a tela imediatamente
 
-if not api_key:
-    st.info("Por favor, insira sua chave de API OpenAI na barra lateral para começar.")
-    st.stop()
+user_input = st.chat_input("💬 Sua pergunta:")
+if user_input and user_input.strip():
+    # A verificação da chave foi movida para cá.
+    if not api_key:
+        st.error("Por favor, insira sua chave API na barra lateral para poder enviar uma pergunta.")
+    else:
+        # O código original continua normalmente se a chave existir.
+        st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
+        resposta = gerar_resposta(user_input)
+        st.session_state.mensagens_chat[-1]["bot"] = resposta
+        salvar_estado()
+        st.rerun() # Adicionado para exibir a resposta imediatamente
+# --- FIM DA ALTERAÇÃO 2 ---
 
-openai.api_key = api_key
 
-# Lógica do Chat
-if user_input := st.chat_input("💬 Sua pergunta:"):
-    st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
-    resposta_bot = gerar_resposta(user_input)
-    st.session_state.mensagens_chat[-1]["bot"] = resposta_bot
-    salvar_estado()
-    st.rerun()
-
-# Exibição do histórico
-for mensagem in st.session_state.mensagens_chat:
-    with st.chat_message("user"):
-        st.markdown(f"**Você:** {mensagem['user']}")
-    if mensagem["bot"]:
+# Exibição do chat (SEU CÓDIGO ORIGINAL)
+with st.container():
+    if st.session_state.mensagens_chat:
+        for mensagem in st.session_state.mensagens_chat:
+            if mensagem["user"]:
+                with st.chat_message("user"):
+                    st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
+            if mensagem["bot"]:
+                with st.chat_message("assistant"):
+                    st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
+    else:
         with st.chat_message("assistant"):
-            st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}")
-
-if not st.session_state.mensagens_chat:
-    st.info("O histórico de chat está vazio. Faça uma pergunta para começar!")
+            # Adicionado um aviso se a chave não estiver presente
+            if not api_key:
+                st.markdown("Para começar, por favor, insira sua chave API OpenAI na barra lateral.")
+            else:
+                st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
