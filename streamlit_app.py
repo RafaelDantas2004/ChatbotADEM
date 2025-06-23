@@ -23,17 +23,7 @@ ICON_PATH = "assets/icon_cade.png"
 
 LOGO_BOT = Image.open(LOGO_BOT_PATH) if os.path.exists(LOGO_BOT_PATH) else None
 
-# remover a parte de configutações
-st.markdown(
-    """
-    <style>
-        div[data-testid="stToolbar"] {
-            display: none !important;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 # Header com ícone e título
 if os.path.exists(ICON_PATH):
     col1, col2 = st.columns([1.5, 4])
