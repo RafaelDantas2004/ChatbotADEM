@@ -1,5 +1,3 @@
-# VERSÃO CORRIGIDA E SIMPLIFICADA
-
 import streamlit as st
 import openai
 import os
@@ -16,10 +14,18 @@ st.set_page_config(
     layout="wide",
 )
 
-# -------------------------------------------------------------------
-# BLOCO DE CSS PROBLEMÁTICO FOI COMPLETAMENTE REMOVIDO PARA GARANTIR
-# QUE A BARRA LATERAL VOLTE A FUNCIONAR NORMALMENTE.
-# -------------------------------------------------------------------
+# --- ALTERAÇÃO 1: Adicionando CSS seguro para ocultar a barra de ferramentas ---
+st.markdown("""
+    <style>
+    /* Oculta a barra de ferramentas do Streamlit (Share, etc.) */
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+        height: 0% !important;
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -147,14 +153,17 @@ Abaixo estão trechos relevantes para sua análise:
                 st.error(f"Erro na API OpenAI: {str(e)}")
                 return f"Desculpe, ocorreu um erro ao tentar gerar a resposta: {str(e)}"
 
-# Sidebar - Agora deve funcionar sem problemas
-st.sidebar.title("Configurações e Ações")
+# --- BARRA LATERAL (SIDEBAR) ---
+
+# --- ALTERAÇÃO 2: A linha st.sidebar.title(...) foi removida daqui. ---
+
 if LOGO_BOT:
-    st.sidebar.image(LOGO_BOT, use_column_width=True)
+    # Corrigido o aviso de deprecation que aparecia na sua imagem
+    st.sidebar.image(LOGO_BOT, use_container_width=True) 
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
-api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API aqui")
+api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API aqui", label_visibility="collapsed")
 
 if st.sidebar.button("🧹 Limpar Histórico do Chat"):
     limpar_historico()
@@ -184,6 +193,3 @@ for mensagem in st.session_state.mensagens_chat:
 
 if not st.session_state.mensagens_chat:
     st.info("O histórico de chat está vazio. Faça uma pergunta para começar!")
-
-
-
