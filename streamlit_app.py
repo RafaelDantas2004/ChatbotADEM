@@ -15,6 +15,7 @@ st.set_page_config(
     layout="wide",
 )
 
+
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
 ICON_PATH = "assets/icon_cade.png"
@@ -22,6 +23,15 @@ ICON_PATH = "assets/icon_cade.png"
 
 LOGO_BOT = Image.open(LOGO_BOT_PATH) if os.path.exists(LOGO_BOT_PATH) else None
 
+# Adicione este bloco para remover a barra de ferramentas superior
+st.markdown("""
+    <style>
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Header com ícone e título
 if os.path.exists(ICON_PATH):
