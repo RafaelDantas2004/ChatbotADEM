@@ -13,6 +13,7 @@ st.set_page_config(
     page_icon="💙",
     layout="wide",
 )
+
 # Ocultar barra superior do Streamlit (Share, GitHub, etc.)
 st.markdown("""
     <style>
@@ -158,6 +159,8 @@ Abaixo estão trechos relevantes para sua análise:
                 return f"Erro ao gerar a resposta: {str(e)}"
 
 # Sidebar
+st.sidebar.markdown("## 🔧 Configurações da IA")  # <-- Linha adicionada para forçar exibição da barra lateral
+
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
 else:
@@ -192,10 +195,6 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
-
-
-
-
 
 
 
