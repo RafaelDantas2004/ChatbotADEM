@@ -1,4 +1,4 @@
-import streamlit as st 
+import streamlit as st
 import openai
 import os
 from PIL import Image
@@ -14,21 +14,31 @@ st.set_page_config(
     layout="wide",
 )
 
-# CSS personalizado
+# Ocultar barra superior do Streamlit (Share, GitHub, etc.)
+# --- CORREÇÃO APLICADA AQUI ---
 st.markdown("""
     <style>
-    /* Esconde o botão "Deploy" */
-    .stDeployButton {
-        display: none;
+    /* Esconde a barra de ferramentas superior do Streamlit (Deploy, etc.) */
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+        height: 0% !important;
+        display: none !important;
+    }
+    
+    /* Esconde o ícone do menu de hambúrguer (que mostra/esconde a sidebar) */
+    /* ATENÇÃO: Se você precisar que os usuários abram/fechem a sidebar, remova esta regra */
+    [data-testid="stMainMenu"] {
+        visibility: hidden !important;
+        height: 0% !important;
+        display: none !important;
     }
 
-    /* Esconde o texto "Made with Streamlit" */
-    .stApp footer:after {
-        content: "";
-        display: none;
+    .stActionButtonIcon {
+        display: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -79,7 +89,7 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
-# Carregar contexto
+# 🔄 NOVO: carregar automaticamente arquivos da pasta /contextos/
 def carregar_contexto():
     contexto = ""
     for caminho in sorted(glob.glob("contextos/*.txt")):
@@ -156,33 +166,33 @@ Abaixo estão trechos relevantes para sua análise:
             else:
                 return f"Erro ao gerar a resposta: {str(e)}"
 
+# --- A BARRA LATERAL AGORA DEVE APARECER CORRETAMENTE ---
 # Sidebar
-st.sidebar.markdown("## 🔧 Configurações da IA")
-
+st.sidebar.title("Configurações") # Adicionei um título para melhor UX
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
 api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
-
-if api_key:
+if not api_key:
+    st.warning("Por favor, insira sua chave de API para continuar.")
+    st.stop()
+else:
     openai.api_key = api_key
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
-        st.sidebar.success("Histórico do chat limpo com sucesso!")
-else:
-    st.sidebar.warning("Por favor, insira sua chave de API para continuar.")
-    st.info("Aguardando chave da API...")
+        st.experimental_rerun() # Use rerun para atualizar a tela imediatamente
 
-# Chat
 user_input = st.chat_input("💬 Sua pergunta:")
-if api_key and user_input and user_input.strip():
+if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
     resposta = gerar_resposta(user_input)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
     salvar_estado()
+    st.experimental_rerun() # Rerun para mostrar a nova mensagem na tela
 
+# Container para exibir as mensagens
 with st.container():
     if st.session_state.mensagens_chat:
         for mensagem in st.session_state.mensagens_chat:
@@ -195,7 +205,6 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
-
 
 
 
