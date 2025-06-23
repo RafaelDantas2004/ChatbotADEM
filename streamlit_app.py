@@ -14,20 +14,18 @@ st.set_page_config(
     layout="wide",
 )
 
-# Ocultar barra superior do Streamlit (Share, GitHub, etc.)
+# CSS personalizado
 st.markdown("""
     <style>
-    [data-testid="stToolbar"] {
-        visibility: hidden !important;
-        display: none !important;
+    /* Esconde o botão "Deploy" */
+    .stDeployButton {
+        display: none;
     }
 
-    header.st-emotion-cache-18ni7ap {
-        display: none !important;
-    }
-
-    .stActionButtonIcon {
-        display: none !important;
+    /* Esconde o texto "Made with Streamlit" */
+    .stApp footer:after {
+        content: "";
+        display: none;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -81,7 +79,7 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
-# 🔄 NOVO: carregar automaticamente arquivos da pasta /contextos/
+# Carregar contexto
 def carregar_contexto():
     contexto = ""
     for caminho in sorted(glob.glob("contextos/*.txt")):
@@ -159,7 +157,7 @@ Abaixo estão trechos relevantes para sua análise:
                 return f"Erro ao gerar a resposta: {str(e)}"
 
 # Sidebar
-st.sidebar.markdown("## 🔧 Configurações da IA")  # <-- Linha adicionada para forçar exibição da barra lateral
+st.sidebar.markdown("## 🔧 Configurações da IA")
 
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
@@ -167,17 +165,19 @@ else:
     st.sidebar.markdown("**Logo não encontrada**")
 
 api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
-if not api_key:
-    st.warning("Por favor, insira sua chave de API para continuar.")
-    st.stop()
-else:
+
+if api_key:
     openai.api_key = api_key
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
+else:
+    st.sidebar.warning("Por favor, insira sua chave de API para continuar.")
+    st.info("Aguardando chave da API...")
 
+# Chat
 user_input = st.chat_input("💬 Sua pergunta:")
-if user_input and user_input.strip():
+if api_key and user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
     resposta = gerar_resposta(user_input)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
@@ -195,6 +195,7 @@ with st.container():
     else:
         with st.chat_message("assistant"):
             st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+
 
 
 
