@@ -1,3 +1,5 @@
+# VERSÃO CORRIGIDA E SIMPLIFICADA
+
 import streamlit as st
 import openai
 import os
@@ -14,31 +16,10 @@ st.set_page_config(
     layout="wide",
 )
 
-# Ocultar barra superior do Streamlit (Share, GitHub, etc.)
-# --- CORREÇÃO APLICADA AQUI ---
-st.markdown("""
-    <style>
-    /* Esconde a barra de ferramentas superior do Streamlit (Deploy, etc.) */
-    [data-testid="stToolbar"] {
-        visibility: hidden !important;
-        height: 0% !important;
-        display: none !important;
-    }
-    
-    /* Esconde o ícone do menu de hambúrguer (que mostra/esconde a sidebar) */
-    /* ATENÇÃO: Se você precisar que os usuários abram/fechem a sidebar, remova esta regra */
-    [data-testid="stMainMenu"] {
-        visibility: hidden !important;
-        height: 0% !important;
-        display: none !important;
-    }
-
-    .stActionButtonIcon {
-        display: none !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
+# -------------------------------------------------------------------
+# BLOCO DE CSS PROBLEMÁTICO FOI COMPLETAMENTE REMOVIDO PARA GARANTIR
+# QUE A BARRA LATERAL VOLTE A FUNCIONAR NORMALMENTE.
+# -------------------------------------------------------------------
 
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
@@ -89,7 +70,6 @@ def limpar_historico():
     st.session_state.perguntas_respondidas = set()
     salvar_estado()
 
-# 🔄 NOVO: carregar automaticamente arquivos da pasta /contextos/
 def carregar_contexto():
     contexto = ""
     for caminho in sorted(glob.glob("contextos/*.txt")):
@@ -158,53 +138,52 @@ Abaixo estão trechos relevantes para sua análise:
                     max_tokens=800
                 )
                 st.session_state.perguntas_respondidas.add(pergunta_hash)
-                return resposta["choices"][0]["message"]["content"]
+                return resposta.choices[0].message["content"]
         except Exception as e:
             if tentativa < 2:
                 time.sleep(2)
                 continue
             else:
-                return f"Erro ao gerar a resposta: {str(e)}"
+                st.error(f"Erro na API OpenAI: {str(e)}")
+                return f"Desculpe, ocorreu um erro ao tentar gerar a resposta: {str(e)}"
 
-# --- A BARRA LATERAL AGORA DEVE APARECER CORRETAMENTE ---
-# Sidebar
-st.sidebar.title("Configurações") # Adicionei um título para melhor UX
+# Sidebar - Agora deve funcionar sem problemas
+st.sidebar.title("Configurações e Ações")
 if LOGO_BOT:
-    st.sidebar.image(LOGO_BOT, width=300)
+    st.sidebar.image(LOGO_BOT, use_column_width=True)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
-api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
+api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API aqui")
+
+if st.sidebar.button("🧹 Limpar Histórico do Chat"):
+    limpar_historico()
+    st.rerun()
+
 if not api_key:
-    st.warning("Por favor, insira sua chave de API para continuar.")
+    st.info("Por favor, insira sua chave de API OpenAI na barra lateral para começar.")
     st.stop()
-else:
-    openai.api_key = api_key
-    if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
-        limpar_historico()
-        st.experimental_rerun() # Use rerun para atualizar a tela imediatamente
 
-user_input = st.chat_input("💬 Sua pergunta:")
-if user_input and user_input.strip():
+openai.api_key = api_key
+
+# Lógica do Chat
+if user_input := st.chat_input("💬 Sua pergunta:"):
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
-    resposta = gerar_resposta(user_input)
-    st.session_state.mensagens_chat[-1]["bot"] = resposta
+    resposta_bot = gerar_resposta(user_input)
+    st.session_state.mensagens_chat[-1]["bot"] = resposta_bot
     salvar_estado()
-    st.experimental_rerun() # Rerun para mostrar a nova mensagem na tela
+    st.rerun()
 
-# Container para exibir as mensagens
-with st.container():
-    if st.session_state.mensagens_chat:
-        for mensagem in st.session_state.mensagens_chat:
-            if mensagem["user"]:
-                with st.chat_message("user"):
-                    st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
-            if mensagem["bot"]:
-                with st.chat_message("assistant"):
-                    st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
-    else:
+# Exibição do histórico
+for mensagem in st.session_state.mensagens_chat:
+    with st.chat_message("user"):
+        st.markdown(f"**Você:** {mensagem['user']}")
+    if mensagem["bot"]:
         with st.chat_message("assistant"):
-            st.markdown("*AD&M IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+            st.markdown(f"**AD&M IA:**\n\n{mensagem['bot']}")
+
+if not st.session_state.mensagens_chat:
+    st.info("O histórico de chat está vazio. Faça uma pergunta para começar!")
 
 
 
