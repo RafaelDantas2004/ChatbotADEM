@@ -15,6 +15,16 @@ st.set_page_config(
     layout="wide",
 )
 
+# Adicione este bloco para remover a barra de ferramentas superior
+st.markdown("""
+    <style>
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Caminhos das logos
 LOGO_BOT_PATH = "assets/Cópia de Logo BRANCA HD cópia.png"
 ICON_PATH = "assets/icon_cade.png"
